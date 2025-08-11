@@ -1,0 +1,107 @@
+---
+import Container from "./Container.astro";
+import MobileMenuWrapper from "../ui/MobileMenuWrapper.tsx";
+---
+
+<header
+  class="fixed w-full py-4 z-50 text-white backdrop-blur-sm bg-black/20 header-transition"
+  id="main-header"
+>
+  <Container class="flex items-center justify-between">
+    <div class="flex items-center logo-container">
+      <img
+        src="/moon_sun.webp"
+        alt="El camino de la vida"
+        class="w-10 h-10 object-contain"
+      />
+      <span class="ml-3 font-dm text-lg font-light logo-text text-white uppercase tracking-wider"
+        >El camino</span
+      >
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8 nav-desktop">
+      <a
+        href="#terapias"
+        class="nav-link relative overflow-hidden group text-sm font-medium"
+      >
+        <span
+          class="relative z-10 transition-colors duration-300 group-hover:text-golden"
+          >Terapias</span
+        >
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-golden transition-all duration-300 group-hover:w-full"
+        >
+        </div>
+      </a>
+      <a
+        href="#alojamiento"
+        class="nav-link relative overflow-hidden group text-sm font-medium"
+      >
+        <span
+          class="relative z-10 transition-colors duration-300 group-hover:text-golden"
+          >Alojamiento</span
+        >
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-golden transition-all duration-300 group-hover:w-full"
+        >
+        </div>
+      </a>
+      <a
+        href="#packs"
+        class="nav-link relative overflow-hidden group text-sm font-medium"
+      >
+        <span
+          class="relative z-10 transition-colors duration-300 group-hover:text-golden"
+          >Packs</span
+        >
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-golden transition-all duration-300 group-hover:w-full"
+        >
+        </div>
+      </a>
+      <a
+        href="#talleres"
+        class="nav-link relative overflow-hidden group text-sm font-medium"
+      >
+        <span
+          class="relative z-10 transition-colors duration-300 group-hover:text-golden"
+          >Talleres</span
+        >
+        <div
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-golden transition-all duration-300 group-hover:w-full"
+        >
+        </div>
+      </a>
+      <a
+        href="#contacto"
+        class="bg-golden/20 text-white px-4 py-2 rounded-full hover:bg-golden hover:text-black transition-all duration-200 text-sm font-medium"
+      >
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Mobile Menu - React Component -->
+    <MobileMenuWrapper client:only />
+  </Container>
+</header>
+
+<script>
+  // Header scroll effect
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("main-header");
+    if (!header) return;
+
+    if (window.scrollY > 100) {
+      header.classList.remove("bg-black/20");
+      header.classList.add("bg-background/95");
+      header.classList.remove("text-white");
+      header.classList.add("text-dark-bg");
+    } else {
+      header.classList.add("bg-black/20");
+      header.classList.remove("bg-background/95");
+      header.classList.add("text-white");
+      header.classList.remove("text-dark-bg");
+    }
+  });
+</script>

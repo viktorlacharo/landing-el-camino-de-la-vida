@@ -1,0 +1,150 @@
+---
+import Container from '../layout/Container.astro';
+---
+
+<section id="contacto" class="py-section bg-gradient-to-br from-lavanda/20 to-golden/10">
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-section md:text-5xl font-display font-bold mb-4 text-dark-bg">
+        Inicia tu Transformación
+      </h2>
+      <p class="text-xl text-gray-900 max-w-3xl mx-auto">
+        ¿Listo para dar el primer paso hacia tu sanación? Conecta con nosotros y 
+        descubre cómo podemos acompañarte en tu camino de crecimiento interior.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-subsection font-display font-semibold mb-6">Conecta con Nosotros</h3>
+          
+          <div class="space-y-4">
+            <!-- Phone -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-golden rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark-bg mb-1">Teléfono</h4>
+                <p class="text-gray-700">+34 XXX XXX XXX</p>
+                <p class="text-sm text-gray-600">Disponible de 9:00 a 19:00h</p>
+              </div>
+            </div>
+            
+            <!-- Email -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-lavanda rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-dark-bg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark-bg mb-1">Email</h4>
+                <p class="text-gray-700">info@elcaminodelavida.es</p>
+                <p class="text-sm text-gray-600">Respuesta en 24h</p>
+              </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-menta-ligera rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-dark-bg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark-bg mb-1">Ubicación</h4>
+                <p class="text-gray-700">Tarragona, Cataluña</p>
+                <p class="text-sm text-gray-600">España</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-6">
+          <h4 class="font-display font-semibold mb-4">Acciones Rápidas</h4>
+          <div class="space-y-3">
+            <a href="tel:+34XXXXXXXXX" class="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-golden/10 transition-colors duration-200 group">
+              <span class="font-medium">Llamar ahora</span>
+              <svg class="w-5 h-5 text-golden group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a href="mailto:info@elcaminodelavida.es" class="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-lavanda/10 transition-colors duration-200 group">
+              <span class="font-medium">Enviar email</span>
+              <svg class="w-5 h-5 text-lavanda group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/34XXXXXXXXX" class="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-menta-ligera/10 transition-colors duration-200 group">
+              <span class="font-medium">WhatsApp</span>
+              <svg class="w-5 h-5 text-menta-ligera group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="bg-white rounded-3xl p-8 shadow-lg">
+        <h3 class="text-subsection font-display font-semibold mb-6">Cuéntanos sobre ti</h3>
+        <form class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-dark-bg mb-2">Nombre *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lavanda focus:border-transparent transition-colors duration-200">
+          </div>
+          
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-dark-bg mb-2">Email *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lavanda focus:border-transparent transition-colors duration-200">
+          </div>
+          
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-sm font-medium text-dark-bg mb-2">Teléfono</label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lavanda focus:border-transparent transition-colors duration-200">
+          </div>
+          
+          <!-- Interest -->
+          <div>
+            <label for="interest" class="block text-sm font-medium text-dark-bg mb-2">Me interesa *</label>
+            <select id="interest" name="interest" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lavanda focus:border-transparent transition-colors duration-200">
+              <option value="">Selecciona una opción</option>
+              <option value="terapias">Terapias individuales</option>
+              <option value="alojamiento">Alojamiento terapéutico</option>
+              <option value="packs">Packs combinados</option>
+              <option value="talleres">Talleres grupales</option>
+              <option value="personalizado">Experiencia personalizada</option>
+            </select>
+          </div>
+          
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-dark-bg mb-2">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="Cuéntanos qué buscas en tu proceso de transformación..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-lavanda focus:border-transparent transition-colors duration-200 resize-none"></textarea>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="w-full bg-golden text-white py-4 rounded-lg font-semibold hover:bg-golden/90 transition-colors duration-200 transform hover:scale-[1.02]">
+            Iniciar mi Transformación
+          </button>
+          
+          <!-- Privacy Note -->
+          <p class="text-xs text-gray-600 text-center">
+            Tus datos están protegidos. Solo los usaremos para contactarte sobre nuestros servicios.
+          </p>
+        </form>
+      </div>
+    </div>
+  </Container>
+</section>

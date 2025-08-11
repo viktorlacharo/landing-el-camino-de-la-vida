@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Therapies from '../components/sections/Therapies.astro';
+import Accommodations from '../components/sections/Accommodations.astro';
+import Packs from '../components/sections/Packs.astro';
+import Workshops from '../components/sections/Workshops.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<Layout 
+  title="El Camino de la Vida - Terapias Alternativas y Alojamiento Terapéutico en Tarragona"
+  description="Transforma tu vida con nuestras terapias espirituales y alojamiento sagrado en Tarragona. Tarot evolutivo, sanación energética, retiros y experiencias transformadoras auténticas."
+>
+  <Header />
+  <main>
+    <Hero />
+    <Workshops />
+    <Packs />
+    <Accommodations />
+    <Therapies />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

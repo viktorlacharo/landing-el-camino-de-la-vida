@@ -1,0 +1,234 @@
+---
+import Container from "../layout/Container.astro";
+---
+
+<section
+  id="alojamiento"
+  class="py-section bg-gradient-to-br from-amarillo-crema/30 to-lavanda/20"
+>
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2
+        class="text-section md:text-5xl font-display font-bold mb-4 text-dark-bg"
+      >
+        Espacios Sagrados para tu Transformación
+      </h2>
+      <p class="text-xl text-gray-900 max-w-3xl mx-auto">
+        Alojamientos terapéuticos diseñados para nutrir tu alma. Cada espacio
+        está imbuido de energía sanadora para potenciar tu experiencia de
+        crecimiento interior.
+      </p>
+      <p class="mt-4 text-base md:text-lg text-gray-800">
+        Actualmente disponemos de dos habitaciones: <span
+          class="text-golden font-semibold">Aura</span
+        > y <span class="text-golden font-semibold">Gaya</span> (128€ por noche).
+      </p>
+    </div>
+
+    <!-- Accommodations Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Aura -->
+      <div
+        class="acc-card group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+      >
+        <!-- Placeholder media (reemplazar por foto/video) -->
+        <div class="relative aspect-[16/10]">
+          <div
+            class="anim-media absolute inset-0 bg-gradient-to-br from-lavanda to-rosa-empolvado"
+          >
+          </div>
+          <div
+            class="anim-shine absolute inset-0 pointer-events-none bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.45),transparent)] mix-blend-screen"
+          >
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span
+              class="text-white/85 backdrop-blur-md bg-black/20 border border-white/20 px-3 py-1 rounded-full text-xs tracking-wide"
+              >Placeholder</span
+            >
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-card font-display font-bold mb-2 text-dark-bg">
+            Aura
+          </h3>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            Habitación armonizada con energía suave y luminosa; ideal para
+            descansar y resetear cuerpo y mente.
+          </p>
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-2xl font-bold text-golden">€128/noche</span>
+          </div>
+          <button
+            class="w-full bg-lavanda text-dark-bg py-3 rounded-full font-semibold hover:bg-lavanda/90 transition-colors duration-200"
+          >
+            Reservar Aura
+          </button>
+        </div>
+      </div>
+
+      <!-- Gaya -->
+      <div
+        class="acc-card group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+      >
+        <!-- Placeholder media (reemplazar por foto/video) -->
+        <div class="relative aspect-[16/10]">
+          <div
+            class="anim-media absolute inset-0 bg-gradient-to-br from-menta-ligera to-golden/30"
+          >
+          </div>
+          <div
+            class="anim-shine absolute inset-0 pointer-events-none bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.45),transparent)] mix-blend-screen"
+          >
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span
+              class="text-white/85 backdrop-blur-md bg-black/20 border border-white/20 px-3 py-1 rounded-full text-xs tracking-wide"
+              >Placeholder</span
+            >
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-card font-display font-bold mb-2 text-dark-bg">
+            Gaya
+          </h3>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            Conexión con la naturaleza y la tierra; un espacio cálido para
+            integrar procesos de sanación.
+          </p>
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-2xl font-bold text-golden">€128/noche</span>
+          </div>
+          <button
+            class="w-full bg-golden text-white py-3 rounded-full font-semibold hover:bg-golden/90 transition-colors duration-200"
+          >
+            Reservar Gaya
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="mt-16 bg-white/50 backdrop-blur-sm rounded-3xl p-8 md:p-12">
+      <h3 class="text-subsection font-display font-semibold text-center mb-8">
+        Incluido en tu Estancia
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-lavanda rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-dark-bg"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Ambiente Sanador</h4>
+          <p class="text-gray-700 text-sm">
+            Espacios energéticamente limpiados y consagrados
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-menta-ligera rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-dark-bg"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Tranquilidad Total</h4>
+          <p class="text-gray-700 text-sm">
+            Entorno natural alejado del ruido urbano
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-rosa-empolvado rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-6 h-6 text-dark-bg"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Luz Natural</h4>
+          <p class="text-gray-700 text-sm">
+            Diseño que maximiza la conexión con la naturaleza
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<!-- <script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = gsap.utils.toArray<HTMLElement>(".acc-card");
+  cards.forEach((card: HTMLElement) => {
+    const media = card.querySelector(".anim-media") as HTMLElement | null;
+    const shine = card.querySelector(".anim-shine") as HTMLElement | null;
+
+    // Estado inicial
+  gsap.set(card, { opacity: 0, y: 30 });
+  if (media) gsap.set(media, { scale: 1.08, rotate: -1.5, transformOrigin: "50% 50%" });
+  if (shine) gsap.set(shine, { opacity: 0, xPercent: -120 });
+
+    // Revelado on-scroll
+    const tl = gsap.timeline({
+      scrollTrigger: {
+  trigger: card,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+      defaults: { ease: "power2.out" },
+    });
+
+    tl.to(card, { opacity: 1, y: 0, duration: 0.5 });
+    if (media) tl.to(media, { scale: 1, rotate: 0, duration: 0.8, ease: "power3.out" }, "<0.05");
+    if (shine) {
+      tl.to(shine, { opacity: 0.6, xPercent: 120, duration: 0.8 }, "<")
+        .to(shine, { opacity: 0, duration: 0.2 }, "<");
+    }
+
+    // Micro-interacción hover
+    card.addEventListener("mouseenter", () => {
+      if (media) gsap.to(media, { scale: 1.03, y: -4, duration: 0.3, ease: "power2.out" });
+    });
+    card.addEventListener("mouseleave", () => {
+      if (media) gsap.to(media, { scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
+    });
+  });
+</script> -->

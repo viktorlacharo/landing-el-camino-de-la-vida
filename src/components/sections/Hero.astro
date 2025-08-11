@@ -1,0 +1,103 @@
+---
+import Container from "../layout/Container.astro";
+---
+
+<section
+  class="bg-[url(/bg_image.webp)] bg-position-[center_top] h-screen bg-no-repeat bg-cover py-32 relative"
+>
+  <Container class="h-full">
+    <div class="flex flex-col justify-between h-full">
+      <div class="flex flex-col gap-4">
+        <h1 class="text-white font-dm text-4xl uppercase flex flex-col">
+          El camino de <span class="text-5xl">la vida</span>
+        </h1>
+
+        <div class="w-11/12 bg-white/60 h-px"></div>
+      </div>
+
+      <div class="flex flex-col items-end gap-4">
+        <h2
+          class="text-right font-dm border-t pt-2 border-t-white/80 flex text-white/70 text-xl font-light tracking-wide leading-normal"
+        >
+          Sanación y transformación interior
+        </h2>
+      </div>
+    </div>
+  </Container>
+
+  <!-- Scroll Down Arrow -->
+  <div
+    class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+  >
+    <div class="flex flex-col items-center gap-2">
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-white/80 hover:text-white transition-colors duration-300"
+      >
+        <defs>
+          <linearGradient
+            id="arrowGradient"
+            x1="18.5"
+            y1="7"
+            x2="18.5"
+            y2="31"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#BE772C"></stop>
+            <stop offset="1" stop-color="#583714"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M30.1801 18.2281C30.2815 18.3294 30.362 18.4497 30.4168 18.5821C30.4717 18.7146 30.5 18.8565 30.5 18.9999C30.5 19.1432 30.4717 19.2852 30.4168 19.4176C30.362 19.55 30.2815 19.6703 30.1801 19.7716L19.2716 30.6801C19.1703 30.7815 19.05 30.862 18.9176 30.9168C18.7852 30.9717 18.6432 31 18.4999 31C18.3565 31 18.2146 30.9717 18.0821 30.9168C17.9497 30.862 17.8294 30.7815 17.7281 30.6801L6.81968 19.7716C6.61499 19.567 6.5 19.2893 6.5 18.9999C6.5 18.7104 6.61499 18.4328 6.81968 18.2281C7.02436 18.0234 7.30198 17.9084 7.59145 17.9084C7.88092 17.9084 8.15853 18.0234 8.36322 18.2281L18.4999 28.3661L28.6365 18.2281C28.7378 18.1267 28.8581 18.0462 28.9906 17.9913C29.123 17.9364 29.2649 17.9082 29.4083 17.9082C29.5517 17.9082 29.6936 17.9364 29.826 17.9913C29.9585 18.0462 30.0788 18.1267 30.1801 18.2281ZM17.7281 19.7716C17.8294 19.8731 17.9497 19.9535 18.0821 20.0084C18.2146 20.0633 18.3565 20.0916 18.4999 20.0916C18.6432 20.0916 18.7852 20.0633 18.9176 20.0084C19.05 19.9535 19.1703 19.8731 19.2716 19.7716L30.1801 8.86322C30.3848 8.65853 30.4997 8.38092 30.4997 8.09145C30.4997 7.80198 30.3848 7.52436 30.1801 7.31968C29.9754 7.11499 29.6978 7 29.4083 7C29.1188 7 28.8412 7.11499 28.6365 7.31968L18.4999 17.4577L8.36322 7.31968C8.15853 7.11499 7.88092 7 7.59145 7C7.30198 7 7.02436 7.11499 6.81968 7.31968C6.61499 7.52436 6.5 7.80198 6.5 8.09145C6.5 8.38092 6.61499 8.65853 6.81968 8.86322L17.7281 19.7716Z"
+          fill="url(#arrowGradient)"></path>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Hero scroll animation
+  document.querySelector(".animate-bounce")?.addEventListener("click", () => {
+    document.querySelector("#accommodations")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+
+  // Hero entrance animations removed
+</script>
+
+<style>
+  h1:not(span) {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.8px;
+  }
+
+  h1 span {
+    background: linear-gradient(
+      90deg,
+      var(--color-golden, #be772c) 0%,
+      #999 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    font-weight: 400;
+
+    letter-spacing: 0.96px;
+  }
+
+  h2 {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+</style>
