@@ -49,6 +49,11 @@ body {
   transition: overflow 0.3s ease;
 }
 
+/* Utility classes */
+.no-scroll {
+  overflow: hidden;
+}
+
 /* Prevent scroll when mobile menu is open */
 body.menu-open {
   overflow: hidden;

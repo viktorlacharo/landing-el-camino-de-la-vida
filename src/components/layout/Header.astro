@@ -90,18 +90,29 @@ import MobileMenuWrapper from "../ui/MobileMenuWrapper.tsx";
   // Header scroll effect
   window.addEventListener("scroll", () => {
     const header = document.getElementById("main-header");
-    if (!header) return;
+    const logoText = document.querySelector(".logo-text");
+    if (!header || !logoText) return;
 
     if (window.scrollY > 100) {
+      // Header background y texto general
       header.classList.remove("bg-black/20");
       header.classList.add("bg-background/95");
       header.classList.remove("text-white");
       header.classList.add("text-dark-bg");
+      
+      // Logo texto específicamente
+      logoText.classList.remove("text-white");
+      logoText.classList.add("text-dark-bg");
     } else {
+      // Header background y texto general
       header.classList.add("bg-black/20");
       header.classList.remove("bg-background/95");
       header.classList.add("text-white");
       header.classList.remove("text-dark-bg");
+      
+      // Logo texto específicamente
+      logoText.classList.add("text-white");
+      logoText.classList.remove("text-dark-bg");
     }
   });
 </script>
