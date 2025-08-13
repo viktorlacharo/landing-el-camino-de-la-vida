@@ -1,21 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
-import Hero from '../components/sections/Hero.astro';
-import Therapies from '../components/sections/Therapies.astro';
-import Accommodations from '../components/sections/Accommodations.astro';
-import Packs from '../components/sections/Packs.astro';
-import Workshops from '../components/sections/Workshops.astro';
-import Contact from '../components/sections/Contact.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import Therapies from "../components/sections/Therapies.astro";
+import Accommodations from "../components/sections/Accommodations.astro";
+import Packs from "../components/sections/Packs.astro";
+import Workshops from "../components/sections/Workshops.astro";
+import Contact from "../components/sections/Contact.astro";
 ---
 
-<Layout 
+<Layout
   title="El Camino de la Vida - Terapias Alternativas y Alojamiento Terapéutico en Tarragona"
   description="Transforma tu vida con nuestras terapias espirituales y alojamiento sagrado en Tarragona. Tarot evolutivo, sanación energética, retiros y experiencias transformadoras auténticas."
 >
   <Header />
-  <main>
+  <main class="scroll-smooth">
     <Hero />
     <Workshops />
     <Packs />
@@ -25,3 +25,56 @@ import Contact from '../components/sections/Contact.astro';
   </main>
   <Footer />
 </Layout>
+
+<script>
+  import Lenis from "lenis";
+  import "lenis/dist/lenis.css";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  // Register GSAP plugins
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Initialize Lenis for smooth scrolling
+  const lenis = new Lenis({
+    autoRaf: true, // Automatically run requestAnimationFrame loop
+    // lerp: 0.1, // Linear interpolation intensity (0-1, lower = smoother but slower)
+    //duration: 1.2, // Duration of scroll animation in seconds
+    //easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing function
+    //orientation: "vertical", // Scroll direction
+    gestureOrientation: "vertical", // Gesture direction
+    smoothWheel: true, // Smooth wheel scrolling
+    wheelMultiplier: 1.6, // Wheel scroll speed multiplier
+    touchMultiplier: 1.1, // Touch scroll speed multiplier
+    infinite: false, // Disable infinite scroll
+    autoResize: true, // Auto resize on window resize
+    prevent: (node) => {
+      // Prevent smooth scroll on specific elements
+      return (
+        node.classList?.contains("lenis-prevent") ||
+        node.hasAttribute?.("data-lenis-prevent")
+      );
+    },
+  });
+
+  // Make Lenis globally accessible for mobile menu
+  (window as any).lenis = lenis;
+
+  // CRITICAL: Sync Lenis with GSAP ScrollTrigger
+  lenis.on("scroll", ScrollTrigger.update);
+
+  // Add Lenis's requestAnimationFrame method to GSAP's ticker
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+  });
+
+  // Disable lag smoothing in GSAP to prevent delays
+  gsap.ticker.lagSmoothing(0);
+
+  // Listen for scroll events (optional, for debugging or custom functionality)
+  lenis.on("scroll", (e) => {
+
+    // console.log(e)
+    // console.log(e.scroll, e.limit, e.velocity, e.direction, e.progress);
+  });
+</script>

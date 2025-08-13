@@ -39,6 +39,10 @@ const { title, description = "Terapias alternativas y alojamiento terapéutico e
   </head>
   
   <body class="bg-background text-dark-bg font-sans">
-    <slot />
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+      </div>
+    </div>
   </body>
 </html>

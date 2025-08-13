@@ -1,26 +1,28 @@
 ---
 import Container from "./Container.astro";
-import MobileMenuWrapper from "../ui/MobileMenuWrapper.tsx";
+import { HeaderMobile } from "../ui/HeaderMobile.tsx";
 ---
 
 <header
-  class="fixed w-full py-4 z-50 text-white backdrop-blur-sm bg-black/20 header-transition"
+  class="fixed w-full py-4 z-[60] text-white backdrop-blur-sm bg-black/20 header-transition"
   id="main-header"
 >
   <Container class="flex items-center justify-between">
     <div class="flex items-center logo-container">
+      <a class="flex gap-2 items-center" href="#hero">
       <img
         src="/moon_sun.webp"
         alt="El camino de la vida"
         class="w-10 h-10 object-contain"
       />
-      <span class="ml-3 font-dm text-lg font-light logo-text text-white uppercase tracking-wider"
-        >El camino</span
+      <span class="ml-3 font-display text-lg font-light logo-text text-white uppercase tracking-widest"
+        >El camino.</span
       >
+      </a>
     </div>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-8 nav-desktop">
+    <nav class="hidden lg:flex items-center space-x-8 nav-desktop">
       <a
         href="#terapias"
         class="nav-link relative overflow-hidden group text-sm font-medium"
@@ -81,8 +83,10 @@ import MobileMenuWrapper from "../ui/MobileMenuWrapper.tsx";
       </a>
     </nav>
 
-    <!-- Mobile Menu - React Component -->
-    <MobileMenuWrapper client:only />
+    <!-- Mobile Menu - React Component with GSAP animations -->
+    <div class="lg:hidden">
+      <HeaderMobile client:only="react" />
+    </div>
   </Container>
 </header>
 

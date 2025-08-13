@@ -55,3 +55,8 @@ When generating content:
 - Maintain professional yet spiritual tone
 - Include relevant wellness and spiritual therapy keywords
 - Always consider the target demographic: Spanish wellness seekers
+
+## Documentation 
+- https://gsap.com/docs/v3/Plugins/ScrollTrigger/
+- https://astro.build/docs
+- https://github.com/darkroomengineering/lenis/blob/main/README.md
