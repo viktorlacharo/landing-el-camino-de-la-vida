@@ -1,4 +1,6 @@
 ---
+
+import ScrollDownArrow from "@/assets/ScrollDownArrow.astro";
 import "../styles/global.css";
 
 export interface Props {
@@ -38,10 +40,11 @@ const { title, description = "Terapias alternativas y alojamiento terapéutico e
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
   </head>
   
-  <body class="bg-background text-dark-bg font-sans">
+  <body class="bg-gray-900 text-background font-sans">
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <slot />
+        <ScrollDownArrow />
       </div>
     </div>
   </body>

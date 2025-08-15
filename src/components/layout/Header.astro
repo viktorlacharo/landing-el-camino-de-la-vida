@@ -4,7 +4,7 @@ import { HeaderMobile } from "../ui/HeaderMobile.tsx";
 ---
 
 <header
-  class="fixed w-full py-4 z-[60] text-white backdrop-blur-sm bg-black/20 header-transition"
+  class="fixed w-full py-4 z-[60] text-white  header-transition"
   id="main-header"
 >
   <Container class="flex items-center justify-between">
@@ -99,8 +99,7 @@ import { HeaderMobile } from "../ui/HeaderMobile.tsx";
 
     if (window.scrollY > 100) {
       // Header background y texto general
-      header.classList.remove("bg-black/20");
-      header.classList.add("bg-background/95");
+     
       header.classList.remove("text-white");
       header.classList.add("text-dark-bg");
       
@@ -108,9 +107,7 @@ import { HeaderMobile } from "../ui/HeaderMobile.tsx";
       logoText.classList.remove("text-white");
       logoText.classList.add("text-dark-bg");
     } else {
-      // Header background y texto general
-      header.classList.add("bg-black/20");
-      header.classList.remove("bg-background/95");
+  
       header.classList.add("text-white");
       header.classList.remove("text-dark-bg");
       
