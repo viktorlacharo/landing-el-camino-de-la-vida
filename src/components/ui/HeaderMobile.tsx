@@ -172,7 +172,7 @@ export function HeaderMobile() {
             ease: "elastic.inOut(0.75, 0.25)",
             duration: 0.3,
           },
-          "-=0.2"
+          "<"
         );
     } else {
       // Close animation

@@ -329,7 +329,7 @@ import Container from "../layout/Container.astro";
     </div>
   </Container>
 </section>
-
+<!-- 
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -358,7 +358,7 @@ import Container from "../layout/Container.astro";
       const { maxScroll } = calculateDimensions();
 
       // Solo aplicar la animación si hay contenido que scrollear
-      if (maxScroll > 0) {
+      if (maxScroll > 300) {
         // Crear una timeline para el scroll horizontal
         const horizontalTimeline = gsap.timeline({
           ease: "none",
@@ -373,22 +373,22 @@ import Container from "../layout/Container.astro";
               // Debug opcional
               // console.log(`Progress: ${self.progress.toFixed(3)}`);
             },
-            onRefresh: () => {
-              // Recalcular cuando se redimensiona
-              const { maxScroll: newMaxScroll } = calculateDimensions();
-              if (newMaxScroll > 0) {
-                // Actualizar la animación con las nuevas dimensiones
-                horizontalTimeline.to(
-                  workshopsTrack,
-                  {
-                    x: -newMaxScroll,
-                    duration: 1,
-                    ease: "none",
-                  },
-                  0
-                );
-              }
-            },
+            // onRefresh: () => {
+            //   // Recalcular cuando se redimensiona
+            //   const { maxScroll: newMaxScroll } = calculateDimensions();
+            //   if (newMaxScroll > 0) {
+            //     // Actualizar la animación con las nuevas dimensiones
+            //     horizontalTimeline.to(
+            //       workshopsTrack,
+            //       {
+            //         x: -newMaxScroll,
+            //         duration: 1,
+            //         ease: "none",
+            //       },
+            //       0
+            //     );
+            //   }
+            // },
           },
         });
 
@@ -425,4 +425,4 @@ import Container from "../layout/Container.astro";
       }
     });
   });
-</script>
+</script>  -->
