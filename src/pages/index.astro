@@ -36,29 +36,19 @@ import Contact from "../components/sections/Contact.astro";
   gsap.registerPlugin(ScrollTrigger);
 
   // Initialize Lenis for smooth scrolling
+  const isMobile = window.innerWidth <= 768;
+
   const lenis = new Lenis({
-    autoRaf: true, // Automatically run requestAnimationFrame loop
-    // lerp: 0.1, // Linear interpolation intensity (0-1, lower = smoother but slower)
-    //duration: 1.2, // Duration of scroll animation in seconds
-    //easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing function
-    //orientation: "vertical", // Scroll direction
-    gestureOrientation: "vertical", // Gesture direction
-    smoothWheel: true, // Smooth wheel scrolling
-    wheelMultiplier: 1.6, // Wheel scroll speed multiplier
-    touchMultiplier: 1.1, // Touch scroll speed multiplier
-    infinite: false, // Disable infinite scroll
-    autoResize: true, // Auto resize on window resize
-    prevent: (node) => {
-      // Prevent smooth scroll on specific elements
-      return (
-        node.classList?.contains("lenis-prevent") ||
-        node.hasAttribute?.("data-lenis-prevent")
-      );
-    },
+    lerp: isMobile ? 0.1 : 0.07, // Smoother on mobile
+    wheelMultiplier: 1,
+    touchMultiplier: 1.5, // Softer touch response
+    autoResize: true,
+    gestureOrientation: "vertical",
+    smoothWheel: true,
   });
 
   // Make Lenis globally accessible for mobile menu
-  (window as any).lenis = lenis;
+  window.lenis = lenis;
 
   // CRITICAL: Sync Lenis with GSAP ScrollTrigger
   lenis.on("scroll", ScrollTrigger.update);
@@ -73,7 +63,6 @@ import Contact from "../components/sections/Contact.astro";
 
   // Listen for scroll events (optional, for debugging or custom functionality)
   lenis.on("scroll", (e) => {
-
     // console.log(e)
     // console.log(e.scroll, e.limit, e.velocity, e.direction, e.progress);
   });

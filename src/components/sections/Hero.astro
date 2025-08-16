@@ -9,29 +9,36 @@ import Container from "@/components/layout/Container.astro";
         src="/bg_image.webp"
         id="bg-img"
         alt="El camino de la vida"
-        class="h-full w-full overflow-hidden object-cover"
+        class="h-full w-full overflow-hidden object-cover mix-blend-luminosity"
       />
     </picture>
   </div>
 
-  <Container class="h-full absolute py-32 w-full inset-0 z-10">
-    <div class="flex flex-col justify-between h-full px-4">
+  <Container class="h-full absolute pt-32 pb-48 w-full inset-0 z-10">
+    <div class="flex flex-col justify-between pb-calc h-full px-4">
       <div class="flex flex-col gap-4">
         <h1 class="text-white font-dm text-4xl uppercase flex flex-col gap-2">
-          <span class="split">
-            El camino de <br />
-            <span class="text-golden/90">la vida</span>
+          <span class="split text-[2.5rem]">
+            El <span class="text-golden"> camino.</span>
+            <br />
+            <span class="text-2xl text-white capitalize text-stroke"
+              >Tu camino.</span
+            >
           </span>
         </h1>
 
-        <div class="w-11/12 bg-white/60 h-px"></div>
+        <div class="w-11/12 bg-white/60 h-px hero-divider"></div>
       </div>
 
       <div class="flex flex-col items-end gap-4 w-full">
         <h2
           class="text-right justify-end flex flex-wrap gap-2 font-dm border-t split pt-2 border-t-white/80 text-white/70 text-xl font-light tracking-wide leading-normal"
         >
-          Alojamiento y terapias para tu sanación y transformación interior
+          <span class="text-golden"> Alojamiento</span> y <span
+            class="text-golden"
+          >
+            terapias
+          </span>para tu sanación y transformación interior
         </h2>
       </div>
     </div>
@@ -40,11 +47,7 @@ import Container from "@/components/layout/Container.astro";
 
 <!-- <div class="separator w-full h-px bg-gray-900"></div> -->
 
-<div
-  id="resort"
-  class="mask-logo flex flex-col justify-end gap-4 h-screen w-full fixed inset-0 z-20"
->
-</div>
+
 
 <style>
   h1 > span {
@@ -54,7 +57,7 @@ import Container from "@/components/layout/Container.astro";
     letter-spacing: 1.8px;
   }
 
-  .mask-logo {
+  /* .mask-logo {
     background-image: url("/Nua_Relax_Moon.svg");
     background-repeat: no-repeat;
     background-position: center center;
@@ -69,7 +72,7 @@ import Container from "@/components/layout/Container.astro";
     & #resort-description {
       height: clamp(20vh, 35%, 30vh);
     }
-  }
+  } */
 
   /* h1 span > span > div {
     background: linear-gradient(
@@ -93,11 +96,11 @@ import Container from "@/components/layout/Container.astro";
 
   #hero {
     background: var(--color-gray-900);
-    mask-image: url("/Nua_Relax_sm.svg");
+    mask-image: url("/text.svg");
 
     mask-position: center center;
     mask-repeat: no-repeat;
-    mask-size: clamp(6000vh, 5500%, 0vh);
+    mask-size: clamp(4500vh, 5500%, 0vh);
     transition: mask-position 0.5s ease-out;
     mask-origin: content-box;
     background-repeat: no-repeat;
@@ -176,11 +179,11 @@ import Container from "@/components/layout/Container.astro";
     scrollTrigger: {
       trigger: "#hero",
       start: "top top",
-   
-      scrub: 1.2,
-      
+
+      scrub: 2.5,
+      end: "+=65%",
       pin: true,
-      //pinSpacing: false,
+      pinSpacing: false,
       // pinType: "transform",
       markers: true,
     },
@@ -207,6 +210,14 @@ import Container from "@/components/layout/Container.astro";
       },
       "<",
     )
+    .to(
+      ".hero-divider",
+      {
+        autoAlpha: 0,
+        duration: 0.2,
+      },
+      "<",
+    )
 
     .to(
       "#hero",
@@ -224,7 +235,7 @@ import Container from "@/components/layout/Container.astro";
         pointerEvents: "none",
         duration: 0,
       },
-      0.8, // Desactiva interacciones antes de que aparezca el resort
+      0.8,
     )
     .to(
       "#hero",

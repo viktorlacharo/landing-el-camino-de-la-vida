@@ -94,3 +94,5 @@ Se trata de dos casetas de madera situadas en la parte trasera de la casa de los
 - https://gsap.com/docs/v3/Plugins/ScrollTrigger/
 - https://astro.build/docs
 - https://github.com/darkroomengineering/lenis/blob/main/README.md
+El archivo `gsap.txt` contiene los enlaces de la documentación de gsap.
+
