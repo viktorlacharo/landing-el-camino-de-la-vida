@@ -1,8 +1,8 @@
----
+<!-- ---
 import Container from "@/components/layout/Container.astro";
 ---
 
-<section id="hero" class="h-screen w-full relative">
+<section id="hero" class="h-screen w-full relative scale-110">
   <div id="hero-mask">
     <picture>
       <img
@@ -14,7 +14,7 @@ import Container from "@/components/layout/Container.astro";
     </picture>
   </div>
 
-  <Container class="h-full absolute py-32 w-full inset-0 z-10">
+  <Container class="h-full absolute py-32 w-full inset-0">
     <div class="flex flex-col justify-between h-full px-4">
       <div class="flex flex-col gap-4">
         <h1 class="text-white font-dm text-4xl uppercase flex flex-col gap-2">
@@ -29,45 +29,15 @@ import Container from "@/components/layout/Container.astro";
 
       <div class="flex flex-col items-end gap-4 w-full">
         <h2
-          class="text-right justify-end flex flex-wrap gap-2 font-dm border-t split pt-2 border-t-white/80 text-white/70 text-xl font-light tracking-wide leading-normal"
+          class="text-right flex flex-wrap gap-2 font-dm border-t split pt-2 border-t-white/80 text-white/70 text-xl font-light tracking-wide leading-normal"
         >
-          Alojamiento y terapias para tu sanación y transformación interior
+          Sanación y transformación interior
         </h2>
       </div>
     </div>
   </Container>
 </section>
-
-<div
-  id="resort"
-  class="mask-logo flex flex-col justify-end gap-4 h-screen w-full fixed inset-0 z-20"
->
-  <div
-    id="resort-description"
-    class="flex flex-col items-center justify-center h-full"
-  >
-    <h2
-      aria-label="Nua Relax es un resort de descanso intimo con piscina y alojamiento privado"
-      class="sr-only"
-    >
-      NUA RELAX
-    </h2>
-    <p
-      id="resort-title"
-      class="text-white/80 opacity-0 text-2xl font-dm font-light tracking-wide text-center mb-8"
-    >
-      Tu Resort de Descanso
-    </p>
-    <div
-      id="houses"
-      class="flex gap-8 opacity-0 text-golden text-3xl font-dm tracking-wide"
-    >
-      <span>AURA</span>
-      <span class="text-white/60">•</span>
-      <span>GAYA</span>
-    </div>
-  </div>
-</div>
+<div class="test h-20 w-full"></div>
 
 <style>
   h1 > span {
@@ -77,21 +47,17 @@ import Container from "@/components/layout/Container.astro";
     letter-spacing: 1.8px;
   }
 
-  .mask-logo {
-    background-image: url("/Nua_Relax_Moon.svg");
+  .test {
+    background-image: url("/Test.svg");
     background-repeat: no-repeat;
-    background-position: center center;
-
-    background-size: clamp(20vh, 35%, 30vh);
-    transition: background-position 0.5s ease-out;
+    background-position: center;
+    mask-position: center center;
+    background-size: clamp(6000vh, 5500%, 0vh);
+    mask-repeat: no-repeat;
+    mask-size: clamp(6000vh, 5500%, 0vh);
+    transition: mask-position 0.5s ease-out;
+    mask-origin: content-box;
     opacity: 0;
-    z-index: 1;
-    pointer-events: none;
-    padding-bottom: calc(100dvh - 75dvh);
-
-    & #resort-description {
-      height: clamp(20vh, 35%, 30vh);
-    }
   }
 
   /* h1 span > span > div {
@@ -164,17 +130,7 @@ import Container from "@/components/layout/Container.astro";
           stagger: 0.1,
         },
         "+=0.5",
-      )
-      // Add scale animation after text appears
-      .to(
-        "#hero",
-        {
-          scale: 1,
-          duration: 1.5,
-          ease: "power2.out",
-        },
-        "+=0.3",
-      );
+      ); // 0.2 seconds delay after first animation
   } else {
     // Fallback for single element
     tl.from(splits.words, {
@@ -183,15 +139,7 @@ import Container from "@/components/layout/Container.astro";
       filter: "blur(10px)",
       autoAlpha: 0,
       stagger: 0.1,
-    }).to(
-      "#hero",
-      {
-        scale: 1,
-        duration: 1.5,
-        ease: "power2.out",
-      },
-      "+=0.3",
-    );
+    });
   }
 
   let maskTl = gsap.timeline({
@@ -199,7 +147,7 @@ import Container from "@/components/layout/Container.astro";
     scrollTrigger: {
       trigger: "#hero",
       start: "top top",
-      // end: "+=75%",
+      end: "+=75%",
       scrub: 1,
       pin: true,
       markers: true,
@@ -209,12 +157,12 @@ import Container from "@/components/layout/Container.astro";
   maskTl
     .to("#hero", {
       scale: 1.1,
-      duration: 0.7,
+      duration: 1,
     })
     .to(
       "#bg-img",
       {
-        autoAlpha: 0,
+        opacity: 0,
         duration: 0.3,
       },
       "<0.7",
@@ -222,12 +170,11 @@ import Container from "@/components/layout/Container.astro";
     .to(
       ".split",
       {
-        autoAlpha: 0,
+        opacity: 0,
         duration: 0.3,
       },
       "<",
     )
-
     .to(
       "#hero",
       {
@@ -237,69 +184,6 @@ import Container from "@/components/layout/Container.astro";
       },
       0.15,
     )
-
-    .to(
-      "#hero",
-      {
-        pointerEvents: "none",
-        duration: 0,
-      },
-      0.8, // Desactiva interacciones antes de que aparezca el resort
-    )
-    .to(
-      "#hero",
-      {
-        scale: 1,
-      },
-      "<",
-    )
-    .to(
-      ".mask-logo",
-      {
-        opacity: 1,
-        pointerEvents: "auto",
-        duration: 0.5,
-      },
-      ">0.8", // Aparece al final de la animación de máscara
-    )
-    .to(
-      "#hero",
-      {
-        autoAlpha: 0,
-      },
-      "<",
-    )
-    .to(
-      "#houses",
-      {
-        opacity: 1,
-        duration: 0.3,
-      },
-      ">0.1",
-    )
-    .to(
-      "#resort-title",
-      {
-        opacity: 1,
-        duration: 0.3,
-      },
-      ">0.1",
-    )
-
-    .to(
-      ".mask-logo",
-      {
-        backgroundSize: "clamp(20vh, 35%, 30vh)",
-        duration: 0,
-      },
-      "<",
-    )
-    .to(
-      ".mask-logo",
-      {
-        opacity: 1,
-        duration: 0.3,
-      },
-      ">0.1",
-    );
-</script>
+    
+    ;
+</script> -->
