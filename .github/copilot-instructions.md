@@ -56,6 +56,40 @@ When generating content:
 - Include relevant wellness and spiritual therapy keywords
 - Always consider the target demographic: Spanish wellness seekers
 
+
+## Nüa Relax 
+Nüa Relax es un alojamiento gestionado por un particular en Sant Vicenç de Calders, El Vendrell. No es un gran resort, sino un lugar más íntimo y tranquilo, ideal para relajarse.
+
+Consiste en dos encantadoras casetas de madera situadas en la parte trasera de la casa de los propietarios, junto al jardín y la piscina. Según las opiniones de los huéspedes, es un lugar muy bien cuidado, con todo nuevo y decorado con mucho gusto.
+
+Características principales:
+
+Piscina: Cuenta con una piscina al aire libre de temporada.
+
+Instalaciones: Dispone de jardín y terraza. También ofrecen servicio de masajes.
+
+Habitaciones: Las casetas de madera están equipadas con aire acondicionado, baño privado, cafetera, nevera y microondas.
+
+Ambiente: Es un lugar muy tranquilo y perfecto para desconectar, alejado del núcleo urbano. Los anfitriones, Emilio y María José, son descritos como muy amables y atentos.
+
+Servicios: Ofrecen desayuno, el cual es muy valorado por los clientes.
+
+Información importante:
+
+Check-in: De 12:30 a 15:30.
+
+Check-out: De 09:00 a 11:00.
+
+Mascotas: Se admiten bajo petición y pueden aplicarse suplementos.
+
+Fiestas: No se pueden celebrar fiestas ni despedidas de soltero/a.
+
+Edad mínima: La edad mínima para hacer el check-in es de 18 años.
+
+En resumen, es un alojamiento pequeño y con encanto, muy bien valorado por su tranquilidad, la amabilidad de los dueños y el cuidado de las instalaciones.
+
+Se trata de dos casetas de madera situadas en la parte trasera de la casa de los propietarios, junto al jardín y la piscina. Es un lugar íntimo y tranquilo, ideal para relajarse. El nombre de las casas son Aura y Gaya.
+
 ## Documentation 
 - https://gsap.com/docs/v3/Plugins/ScrollTrigger/
 - https://astro.build/docs
