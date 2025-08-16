@@ -1,5 +1,4 @@
 ---
-
 import ScrollDownArrow from "@/assets/ScrollDownArrow.astro";
 import "../styles/global.css";
 
@@ -9,7 +8,11 @@ export interface Props {
   image?: string;
 }
 
-const { title, description = "Terapias alternativas y alojamiento terapéutico en Tarragona. Transforma tu vida con nuestras sesiones de sanación espiritual, tarot evolutivo y retiros en espacios sagrados.", image = "/og-image.jpg" } = Astro.props;
+const {
+  title,
+  description = "Terapias alternativas y alojamiento terapéutico en Tarragona. Transforma tu vida con nuestras sesiones de sanación espiritual, tarot evolutivo y retiros en espacios sagrados.",
+  image = "/og-image.jpg",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +23,7 @@ const { title, description = "Terapias alternativas y alojamiento terapéutico e
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta property="og:title" content={title} />
@@ -28,19 +31,22 @@ const { title, description = "Terapias alternativas y alojamiento terapéutico e
     <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
-    
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  
-  <body class="bg-gray-900 text-background font-sans">
+
+  <body class="text-gray-900 bg-background font-sans">
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <slot />
@@ -49,3 +55,8 @@ const { title, description = "Terapias alternativas y alojamiento terapéutico e
     </div>
   </body>
 </html>
+
+<style>
+  body {
+    
+</style>

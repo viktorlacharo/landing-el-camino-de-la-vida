@@ -38,35 +38,12 @@ import Container from "@/components/layout/Container.astro";
   </Container>
 </section>
 
+<!-- <div class="separator w-full h-px bg-gray-900"></div> -->
+
 <div
   id="resort"
   class="mask-logo flex flex-col justify-end gap-4 h-screen w-full fixed inset-0 z-20"
 >
-  <div
-    id="resort-description"
-    class="flex flex-col items-center justify-center h-full"
-  >
-    <h2
-      aria-label="Nua Relax es un resort de descanso intimo con piscina y alojamiento privado"
-      class="sr-only"
-    >
-      NUA RELAX
-    </h2>
-    <p
-      id="resort-title"
-      class="text-white/80 opacity-0 text-2xl font-dm font-light tracking-wide text-center mb-8"
-    >
-      Tu Resort de Descanso
-    </p>
-    <div
-      id="houses"
-      class="flex gap-8 opacity-0 text-golden text-3xl font-dm tracking-wide"
-    >
-      <span>AURA</span>
-      <span class="text-white/60">•</span>
-      <span>GAYA</span>
-    </div>
-  </div>
 </div>
 
 <style>
@@ -115,7 +92,7 @@ import Container from "@/components/layout/Container.astro";
   } */
 
   #hero {
-    background: white;
+    background: var(--color-gray-900);
     mask-image: url("/Nua_Relax_sm.svg");
 
     mask-position: center center;
@@ -199,9 +176,12 @@ import Container from "@/components/layout/Container.astro";
     scrollTrigger: {
       trigger: "#hero",
       start: "top top",
-      // end: "+=75%",
-      scrub: 1,
+   
+      scrub: 1.2,
+      
       pin: true,
+      //pinSpacing: false,
+      // pinType: "transform",
       markers: true,
     },
   });
@@ -209,7 +189,7 @@ import Container from "@/components/layout/Container.astro";
   maskTl
     .to("#hero", {
       scale: 1.1,
-      duration: 0.7,
+      duration: 0.5,
     })
     .to(
       "#bg-img",
@@ -223,7 +203,7 @@ import Container from "@/components/layout/Container.astro";
       ".split",
       {
         autoAlpha: 0,
-        duration: 0.3,
+        duration: 0.2,
       },
       "<",
     )
@@ -232,7 +212,7 @@ import Container from "@/components/layout/Container.astro";
       "#hero",
       {
         maskSize: "clamp(20vh, 35%, 30vh)",
-        maskPosition: "center center",
+
         duration: 1,
       },
       0.15,
@@ -250,56 +230,27 @@ import Container from "@/components/layout/Container.astro";
       "#hero",
       {
         scale: 1,
+        duration: 0.1,
       },
       "<",
-    )
-    .to(
-      ".mask-logo",
-      {
-        opacity: 1,
-        pointerEvents: "auto",
-        duration: 0.5,
-      },
-      ">0.8", // Aparece al final de la animación de máscara
     )
     .to(
       "#hero",
       {
-        autoAlpha: 0,
+        duration: 0.5,
+        ease: "expo.inOut",
+        maskPosition: "center 25%",
       },
       "<",
-    )
-    .to(
-      "#houses",
-      {
-        opacity: 1,
-        duration: 0.3,
-      },
-      ">0.1",
-    )
-    .to(
-      "#resort-title",
-      {
-        opacity: 1,
-        duration: 0.3,
-      },
-      ">0.1",
-    )
-
-    .to(
-      ".mask-logo",
-      {
-        backgroundSize: "clamp(20vh, 35%, 30vh)",
-        duration: 0,
-      },
-      "<",
-    )
-    .to(
-      ".mask-logo",
-      {
-        opacity: 1,
-        duration: 0.3,
-      },
-      ">0.1",
     );
+
+  // Handle window resize to recalculate responsive values
+  let resizeTimeout: number;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = window.setTimeout(() => {
+      // Refresh ScrollTrigger to recalculate positions
+      ScrollTrigger.refresh();
+    }, 250);
+  });
 </script>
