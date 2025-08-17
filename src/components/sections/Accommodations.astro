@@ -1,65 +1,156 @@
 ---
 import Container from "../layout/Container.astro";
-import Dot from "@/assets/Dot.astro";
 ---
 
-<section
-  id="alojamiento"
-  class="bg-gradient-to-br from-amarillo-crema/30 to-lavanda/20"
->
+<section id="alojamiento" class="">
   <Container>
-    <p class="mt-4 text-4xl flex items-center justify-center w-full md:text-lg text-gray-800">
-      Gaya <Dot /> Aura
-    </p>
+    <div class="text-center mb-20">
+      <p class="text-4xl text-gray-900" id="accommodations-description">
+        Espacios con intención. <br />
+        <br /> Cada alojamiento es un <br />
 
-    <div class="text-center mb-12">
-      <p class="text-xl text-gray-900 max-w-3xl mx-auto">
-        Alojamientos terapéuticos diseñados para nutrir tu alma. Cada espacio
-        está imbuido de energía sanadora para potenciar tu experiencia de
-        crecimiento interior.
+        <span class="golden-gradient"> santuario privado</span>, <br /> diseñado
+        para la introspección y el descanso.
       </p>
     </div>
+
+    <!-- <p
+      class="mt-4 text-4xl flex items-center justify-center w-full md:text-lg text-gray-800"
+      id="accommodation-names"
+    >
+      Gaya <Dot /> Aura
+    </p> -->
   </Container>
+  <div id="accommodation-image" class="h-screen w-full">
+    <div
+      class="absolute inset-0 w-full grid place-items-center z-50 text-6xl text-white uppercase tracking-widest"
+    >
+      <h3 id="text-aura" class="">Aura</h3>
+      <!-- <h3 id="text-gaya" class=" absolute">Gaya</h3> -->
+    </div>
+
+    <video
+      src="/test_video.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full h-screen object-cover rounded-lg"
+    >
+      Tu navegador no soporta videos HTML5.
+    </video>
+  </div>
 </section>
 
-<!-- <script>
-  import gsap from "gsap";
+<style>
+  #text-aura,
+  #text-gaya {
+    transform: translateY(-20px);
+    transform-style: preserve-3d;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
+  import { SplitText } from "gsap/SplitText";
 
-  const cards = gsap.utils.toArray<HTMLElement>(".acc-card");
-  cards.forEach((card: HTMLElement) => {
-    const media = card.querySelector(".anim-media") as HTMLElement | null;
-    const shine = card.querySelector(".anim-shine") as HTMLElement | null;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    // Estado inicial
-  gsap.set(card, { opacity: 0, y: 30 });
-  if (media) gsap.set(media, { scale: 1.08, rotate: -1.5, transformOrigin: "50% 50%" });
-  if (shine) gsap.set(shine, { opacity: 0, xPercent: -120 });
-
-    // Revelado on-scroll
-    const tl = gsap.timeline({
+  const tl = gsap.timeline({
+    defaults: {
+      duration: 0.75,
       scrollTrigger: {
-  trigger: card,
-        start: "top 85%",
+        trigger: "#alojamiento",
+        start: "top 40%",
+        end: "bottom center",
         toggleActions: "play none none reverse",
+        scrub: 1,
+        markers: {
+          indent: 100,
+          startColor: "purple",
+          endColor: "orange",
+        },
       },
-      defaults: { ease: "power2.out" },
-    });
-
-    tl.to(card, { opacity: 1, y: 0, duration: 0.5 });
-    if (media) tl.to(media, { scale: 1, rotate: 0, duration: 0.8, ease: "power3.out" }, "<0.05");
-    if (shine) {
-      tl.to(shine, { opacity: 0.6, xPercent: 120, duration: 0.8 }, "<")
-        .to(shine, { opacity: 0, duration: 0.2 }, "<");
-    }
-
-    // Micro-interacción hover
-    card.addEventListener("mouseenter", () => {
-      if (media) gsap.to(media, { scale: 1.03, y: -4, duration: 0.3, ease: "power2.out" });
-    });
-    card.addEventListener("mouseleave", () => {
-      if (media) gsap.to(media, { scale: 1, y: 0, duration: 0.4, ease: "power2.out" });
-    });
+    },
   });
-</script> -->
+
+  const splitText = new SplitText("#accommodations-description", {
+    type: "lines",
+  });
+
+  const textTl = gsap.timeline({
+    default: {
+      duration: 0.75,
+      ease: "power2.out",
+    },
+    scrollTrigger: {
+      trigger: "#alojamiento",
+      start: "top center",
+      end: "center top",
+
+      toggleActions: "play none none reverse",
+      markers: {
+        startColor: "yellow",
+        endColor: "blue",
+      },
+    },
+  });
+
+  textTl
+    .from(
+      splitText.lines,
+      {
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power2.out",
+        duration: 0.4,
+      },
+      "+=0.1",
+    )
+    .to(
+      ".golden-gradient",
+      {
+        backgroundPosition: "-500% 0",
+        ease: "none",
+        duration: 0.2,
+        scrollTrigger: {
+          scrub: 1,
+        },
+      },
+      ">",
+    );
+
+  // GSAP animation for the accommodation section
+  tl.from("#accommodation-image video", {
+    opacity: 0,
+    y: 200,
+    duration: 0.4,
+    scale: 0.95,
+    stagger: 0.2,
+    // rotate: 5,
+    ease: "expo.inOut",
+  });
+
+  const videoTl = gsap.timeline({
+    defaults: {
+      scrollTrigger: {
+        trigger: "#accommodation-image",
+        start: "top top",
+        //end: "+=200%",
+        scrub: 1,
+        pin: true,
+
+        pinnedContainer: "#accommodation-image",
+
+        markers: true,
+      },
+    },
+  });
+
+  videoTl.to("#accommodation-image video", {
+    scale: 1,
+    duration: 0.5,
+  });
+</script>

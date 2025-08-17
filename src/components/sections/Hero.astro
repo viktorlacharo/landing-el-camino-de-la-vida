@@ -9,7 +9,7 @@ import Container from "@/components/layout/Container.astro";
         src="/bg_image.webp"
         id="bg-img"
         alt="El camino de la vida"
-        class="h-full w-full overflow-hidden object-cover mix-blend-luminosity"
+        class="h-full w-full overflow-hidden object-cover "
       />
     </picture>
   </div>
@@ -46,8 +46,6 @@ import Container from "@/components/layout/Container.astro";
 </section>
 
 <!-- <div class="separator w-full h-px bg-gray-900"></div> -->
-
-
 
 <style>
   h1 > span {
@@ -105,6 +103,9 @@ import Container from "@/components/layout/Container.astro";
     mask-origin: content-box;
     background-repeat: no-repeat;
   }
+
+  
+
 </style>
 <script>
   import { gsap } from "gsap";
@@ -184,6 +185,7 @@ import Container from "@/components/layout/Container.astro";
       end: "+=65%",
       pin: true,
       pinSpacing: false,
+      pinnedContainer: "#hero",
       // pinType: "transform",
       markers: true,
     },
@@ -222,7 +224,7 @@ import Container from "@/components/layout/Container.astro";
     .to(
       "#hero",
       {
-        maskSize: "clamp(20vh, 35%, 30vh)",
+        maskSize: "clamp(20vh, 60%, 30vh)",
 
         duration: 1,
       },
