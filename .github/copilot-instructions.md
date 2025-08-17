@@ -3,6 +3,7 @@
 # El Camino de la Vida - Spiritual Therapy Landing Page
 
 ## Project Context
+
 This is a spiritual therapy and wellness tourism landing page for "El Camino de la Vida" based in Tarragona, Spain. The business offers:
 
 - **Spiritual Therapies**: Tarot evolutivo, energy healing, meditation
@@ -11,6 +12,7 @@ This is a spiritual therapy and wellness tourism landing page for "El Camino de 
 - **Group Workshops**: Community healing experiences
 
 ## Technical Stack
+
 - **Framework**: Astro 5.12.8 with TypeScript
 - **Styling**: Tailwind CSS v4 with custom brand colors
 - **Integrations**: React support for interactive components
@@ -18,27 +20,33 @@ This is a spiritual therapy and wellness tourism landing page for "El Camino de 
 - **Target Audience**: Spanish-speaking wellness seekers and spiritual tourists
 
 ## Brand Guidelines
+
 ### Colors (defined in src/styles/global.css with @theme):
+
 - **Primary**: `lavanda` (#e8d7ff), `golden` (#be772c)
 - **Background**: `background` (#fcf6ed)
 - **Secondary**: `rosa-empolvado` (#fadadd), `menta-ligera` (#bcffcf), `amarillo-crema` (#FFF9D4)
 
 ### Typography:
+
 - **Display**: Montserrat (headings, brand name)
 - **Body**: DM Sans (body text, UI)
 
 ### Content Tone:
+
 - Spiritual but professional
 - Authentic and transformative
 - Welcoming and peaceful
 - Focus on personal transformation and healing
 
 ## Component Structure
+
 - **Layout Components**: Layout.astro, Container.astro, Header.astro, Footer.astro
 - **Section Components**: Hero.astro, Therapies.astro, Accommodations.astro, Packs.astro, Workshops.astro, Contact.astro
 - **UI Components**: Reusable elements (future)
 
 ## Development Notes
+
 - All text content should be in Spanish
 - Focus on SEO optimization for spiritual therapy keywords in Spanish
 - Mobile-first responsive design
@@ -48,7 +56,9 @@ This is a spiritual therapy and wellness tourism landing page for "El Camino de 
 - Future integrations planned: GSAP animations, booking system
 
 ## Content Guidelines
+
 When generating content:
+
 - Use authentic Spanish (Spain variant, not Latin American)
 - Focus on transformation, healing, and spiritual growth themes
 - Emphasize the Tarragona/Cataluña location advantage
@@ -56,8 +66,10 @@ When generating content:
 - Include relevant wellness and spiritual therapy keywords
 - Always consider the target demographic: Spanish wellness seekers
 
+## Nüa Relax
 
-## Nüa Relax 
+https://www.booking.com/hotel/es/nua-relax.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4AoGdgcUGwAIB0gIkZjRlNjNkMjMtOThkNC00NzEyLWJmYjItMGM3YzZkOTY5NmE02AIB4AIB&sid=6a1106c8ab60cfe594a96608754f34ff&all_sr_blocks=1459465401_417254982_2_2_0&checkin=2025-08-18&checkout=2025-08-20&dest_id=-406868&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=62&highlighted_blocks=1459465401_417254982_2_2_0&hpos=12&matching_block_id=1459465401_417254982_2_2_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1459465401_417254982_2_2_0__23864&srepoch=1755336361&srpvid=f3a34250e8c7020b&type=total&ucfs=1&
+
 Nüa Relax es un alojamiento gestionado por un particular en Sant Vicenç de Calders, El Vendrell. No es un gran resort, sino un lugar más íntimo y tranquilo, ideal para relajarse.
 
 Consiste en dos encantadoras casetas de madera situadas en la parte trasera de la casa de los propietarios, junto al jardín y la piscina. Según las opiniones de los huéspedes, es un lugar muy bien cuidado, con todo nuevo y decorado con mucho gusto.
@@ -90,9 +102,9 @@ En resumen, es un alojamiento pequeño y con encanto, muy bien valorado por su t
 
 Se trata de dos casetas de madera situadas en la parte trasera de la casa de los propietarios, junto al jardín y la piscina. Es un lugar íntimo y tranquilo, ideal para relajarse. El nombre de las casas son Aura y Gaya.
 
-## Documentation 
+## Documentation
+
 - https://gsap.com/docs/v3/Plugins/ScrollTrigger/
 - https://astro.build/docs
 - https://github.com/darkroomengineering/lenis/blob/main/README.md
-El archivo `gsap.txt` contiene los enlaces de la documentación de gsap.
-
+  El archivo `gsap.txt` contiene los enlaces de la documentación de gsap.

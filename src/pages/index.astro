@@ -18,13 +18,32 @@ import Contact from "../components/sections/Contact.astro";
   <main class="scroll-smooth">
     <Hero />
     <Accommodations />
-    <Workshops />
+    <!-- <Workshops />
     <Packs />
     <Therapies />
-    <Contact />
+    <Contact /> -->
   </main>
   <Footer />
 </Layout>
+
+<style is:global>
+  .golden-gradient {
+    background: linear-gradient(
+      90deg,
+      var(--color-golden) 0%,
+      var(--color-golden) 25%,
+      #feb26b 50%,
+      var(--color-golden) 75%,
+      var(--color-golden) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.3s ease;
+  }
+</style>
 
 <script>
   import Lenis from "lenis";
