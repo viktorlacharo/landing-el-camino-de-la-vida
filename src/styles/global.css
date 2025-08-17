@@ -36,7 +36,8 @@
 }
 
 /* Lenis smooth scrolling styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -55,11 +56,22 @@ html {
 }
 
 body {
-  font-feature-settings: "kern" 1, "liga" 1;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: overflow 0.3s ease;
+  background-color: var(
+    --color-background
+  ); /* Color de fallback para navegadores antiguos */
+  background-image: linear-gradient(
+    180deg,
+    #fff2e2 0%,
+    var(--color-background) 100%
+  );
+  background-attachment: fixed; /* Evita que el degradado se mueva con el scroll */
 }
 
 /* Utility classes */
@@ -108,49 +120,12 @@ button,
   transition: all 0.2s ease-in-out;
 }
 
-/* Hero section improvements for better mobile experience */
-.hero-bg {
-  background-attachment: scroll;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-@media (min-width: 768px) {
-  .hero-bg {
-    background-attachment: fixed;
-  }
-}
-
-/* Mobile optimizations */
-@media (max-width: 767px) {
-  .hero-bg {
-    background-size: cover;
-    background-position: center center;
-    min-height: 100vh;
-    background-attachment: scroll; /* Fixed para mejorar performance en móvil */
-  }
-}
-
-/* Utility classes for animations */
-.fade-in {
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Header transitions */
 .header-transition {
-  transition: background-color 0.3s ease, color 0.3s ease, backdrop-filter 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
 
 /* Mobile menu overlay */
@@ -172,7 +147,7 @@ button,
   .lg\:clip-visible {
     clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%);
   }
-  
+
   .lg\:clip-none {
     clip-path: none;
   }
