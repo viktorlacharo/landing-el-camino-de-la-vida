@@ -225,6 +225,7 @@ import Container from "@/components/layout/Container.astro";
       "#hero",
       {
         maskSize: "clamp(20vh, 60%, 30vh)",
+        maskPosition: "center 25%",
 
         duration: 1,
       },
@@ -247,15 +248,15 @@ import Container from "@/components/layout/Container.astro";
       },
       "<",
     )
-    .to(
-      "#hero",
-      {
-        duration: 0.5,
-        ease: "expo.inOut",
-        maskPosition: "center 25%",
-      },
-      "<",
-    );
+    // .to(
+    //   "#hero",
+    //   {
+    //     duration: 0.5,
+    //     ease: "expo.inOut",
+    //     maskPosition: "center 25%",
+    //   },
+    //   "<",
+    // );
 
   // Handle window resize to recalculate responsive values
   let resizeTimeout: number;
