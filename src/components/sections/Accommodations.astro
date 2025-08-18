@@ -75,10 +75,6 @@ import Container from "../layout/Container.astro";
     },
   });
 
-  const splitText = new SplitText("#accommodations-description", {
-    type: "lines",
-  });
-
   const textTl = gsap.timeline({
     default: {
       duration: 0.75,
@@ -97,30 +93,18 @@ import Container from "../layout/Container.astro";
     },
   });
 
-  textTl
-    .from(
-      splitText.lines,
-      {
-        y: 50,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "power2.out",
-        duration: 0.4,
+  textTl.to(
+    ".golden-gradient",
+    {
+      backgroundPosition: "-500% 0",
+      ease: "none",
+      duration: 0.2,
+      scrollTrigger: {
+        scrub: 1,
       },
-      "+=0.1",
-    )
-    .to(
-      ".golden-gradient",
-      {
-        backgroundPosition: "-500% 0",
-        ease: "none",
-        duration: 0.2,
-        scrollTrigger: {
-          scrub: 1,
-        },
-      },
-      ">",
-    );
+    },
+    ">",
+  );
 
   // GSAP animation for the accommodation section
   tl.from("#accommodation-image video", {

@@ -9,7 +9,7 @@ import Container from "@/components/layout/Container.astro";
         src="/bg_image.webp"
         id="bg-img"
         alt="El camino de la vida"
-        class="h-full w-full overflow-hidden object-cover "
+        class="h-full w-full overflow-hidden object-cover"
       />
     </picture>
   </div>
@@ -103,9 +103,6 @@ import Container from "@/components/layout/Container.astro";
     mask-origin: content-box;
     background-repeat: no-repeat;
   }
-
-  
-
 </style>
 <script>
   import { gsap } from "gsap";
@@ -191,6 +188,21 @@ import Container from "@/components/layout/Container.astro";
     },
   });
 
+  const splitText = new SplitText("#accommodations-description", {
+    type: "lines",
+  });
+
+  const textTl = gsap.timeline({
+    default: {
+      ease: "power1.in",
+      scrollTrigger: {
+        pin: true,
+      },
+    },
+  });
+
+  maskTl.add(textTl, "1");
+
   maskTl
     .to("#hero", {
       scale: 1.1,
@@ -210,7 +222,7 @@ import Container from "@/components/layout/Container.astro";
         autoAlpha: 0,
         duration: 0.2,
       },
-      "<",
+      "-=1",
     )
     .to(
       ".hero-divider",
@@ -247,16 +259,20 @@ import Container from "@/components/layout/Container.astro";
         duration: 0.1,
       },
       "<",
-    )
-    // .to(
-    //   "#hero",
-    //   {
-    //     duration: 0.5,
-    //     ease: "expo.inOut",
-    //     maskPosition: "center 25%",
-    //   },
-    //   "<",
-    // );
+    );
+
+  textTl.from(
+    splitText.lines,
+    {
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+      filter: "blur(10px)",
+
+      duration: 0.3,
+    },
+    ">",
+  );
 
   // Handle window resize to recalculate responsive values
   let resizeTimeout: number;
