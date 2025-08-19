@@ -261,18 +261,27 @@ import Container from "@/components/layout/Container.astro";
       "<",
     );
 
-  textTl.from(
-    splitText.lines,
-    {
-      y: 20,
-      opacity: 0,
-      stagger: 0.2,
-      filter: "blur(10px)",
+  textTl
+    .to(
+      splitText.lines[0],
+      {
+        marginBottom: "2rem",
+      },
+      "<",
+    )
 
-      duration: 0.3,
-    },
-    ">",
-  );
+    .from(
+      splitText.lines,
+      {
+        y: 20,
+        opacity: 0,
+        stagger: 0.2,
+        filter: "blur(10px)",
+
+        duration: 0.3,
+      },
+      ">",
+    );
 
   // Handle window resize to recalculate responsive values
   let resizeTimeout: number;

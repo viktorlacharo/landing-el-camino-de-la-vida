@@ -1,5 +1,8 @@
 ---
+import Dot from "@/assets/Dot.astro";
 import Container from "../layout/Container.astro";
+
+import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
 ---
 
 <section id="alojamiento" class="">
@@ -7,29 +10,50 @@ import Container from "../layout/Container.astro";
     <div class="text-center mb-20">
       <p class="text-4xl text-gray-900" id="accommodations-description">
         Espacios con intención. <br />
-        <br /> Cada alojamiento es un <br />
+        Cada alojamiento es un
 
-        <span class="golden-gradient"> santuario privado</span>, <br /> diseñado
-        para la introspección y el descanso.
+        <span class="golden-gradient"> santuario privado</span>, diseñado para
+        la introspección y el descanso.
       </p>
     </div>
 
-    <!-- <p
-      class="mt-4 text-4xl flex items-center justify-center w-full md:text-lg text-gray-800"
-      id="accommodation-names"
-    >
-      Gaya <Dot /> Aura
-    </p> -->
-  </Container>
-  <div id="accommodation-image" class="h-screen w-full">
     <div
-      class="absolute inset-0 w-full grid place-items-center z-50 text-6xl text-white uppercase tracking-widest"
+      class="w-full flex items-center justify-between mb-4 relative mt-32 opacity-0"
+      id="accommodation-title"
     >
-      <h3 id="text-aura" class="">Aura</h3>
-      <!-- <h3 id="text-gaya" class=" absolute">Gaya</h3> -->
-    </div>
+      <div class="flex flex-col w-full">
+        <h3
+          class="flex items-center relative w-full gap-2 text-6xl uppercase tracking-wider font-medium overflow-hidden flex-wrap"
+        >
+          <span class="text-filled"> Aura </span><Dot />
+          <span class="text-stroke"> Gaya </span>
+          <span
+            class="underline absolute block left-0 -bottom-2 w-full z-50 bg-golden h-px max-w-10/12"
+          ></span>
+        </h3>
 
-    <video
+        <p class="text-gray-600 text-base my-3 max-w-md text-pretty">
+          Dos acogedoras casetas de madera independientes con acceso a piscina
+          privada. Perfectas para una escapada de descanso y bienestar.
+        </p>
+      </div>
+    </div>
+  </Container>
+
+  <div
+    id="accommodation-image"
+    class="w-full bg-[#f9eddb] rounded-4xl py-8 flex flex-col gap-8"
+  >
+    <Container class="w-full flex flex-col gap-4  relative ">
+      <div class="w-full bg-white rounded-3xl flex h-full z-10 p-6">
+        <AccommodationsCarousel client:visible />
+      </div>
+      <img
+        src="/Houses.webp"
+        class="absolute object-cover mix-blend-luminosity z-0 w-full opacity-10"
+      />
+    </Container>
+    <!-- <video
       src="/test_video.mp4"
       autoplay
       muted
@@ -38,15 +62,21 @@ import Container from "../layout/Container.astro";
       class="w-full h-screen object-cover rounded-lg"
     >
       Tu navegador no soporta videos HTML5.
-    </video>
+    </video> -->
   </div>
 </section>
 
 <style>
-  #text-aura,
-  #text-gaya {
-    transform: translateY(-20px);
-    transform-style: preserve-3d;
+  .text-filled {
+    color: var(--color-gray-900);
+  }
+
+  .text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-gray-900);
+    text-stroke: 1px var(--color-gray-900);
+    font-family: "Inter", "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 500;
   }
 </style>
 
@@ -62,10 +92,10 @@ import Container from "../layout/Container.astro";
       duration: 0.75,
       scrollTrigger: {
         trigger: "#alojamiento",
-        start: "top 40%",
-        end: "bottom center",
+        start: "top top",
+        end: "bottom bottom",
         toggleActions: "play none none reverse",
-        scrub: 1,
+        scrub: 2,
         markers: {
           indent: 100,
           startColor: "purple",
@@ -74,6 +104,41 @@ import Container from "../layout/Container.astro";
       },
     },
   });
+
+  const textStrokeSplit = new SplitText(".text-stroke", {
+    type: "chars",
+  });
+
+  tl.to("#accommodation-title", {
+    opacity: 1,
+    y: 10,
+    duration: 0.2,
+  })
+    .to(
+      textStrokeSplit.chars,
+      {
+        color: "var(--color-gray-900)",
+        duration: 0.2,
+        stagger: 0.1,
+
+        ease: "power1.in",
+      },
+      ">0.1",
+    )
+
+    .fromTo(
+      ".underline",
+      {
+        width: "0%",
+        left: "0%",
+      },
+      {
+        width: "100%",
+        duration: 1,
+      },
+
+      "<",
+    );
 
   const textTl = gsap.timeline({
     default: {
@@ -106,35 +171,35 @@ import Container from "../layout/Container.astro";
     ">",
   );
 
-  // GSAP animation for the accommodation section
-  tl.from("#accommodation-image video", {
-    opacity: 0,
-    y: 200,
-    duration: 0.4,
-    scale: 0.95,
-    stagger: 0.2,
-    // rotate: 5,
-    ease: "expo.inOut",
-  });
+  // // GSAP animation for the accommodation section
+  // tl.from("#accommodation-image video", {
+  //   opacity: 0,
+  //   y: 200,
+  //   duration: 0.4,
+  //   scale: 0.95,
+  //   stagger: 0.2,
+  //   // rotate: 5,
+  //   ease: "expo.inOut",
+  // });
 
-  const videoTl = gsap.timeline({
-    defaults: {
-      scrollTrigger: {
-        trigger: "#accommodation-image",
-        start: "top top",
-        //end: "+=200%",
-        scrub: 1,
-        pin: true,
+  // const videoTl = gsap.timeline({
+  //   defaults: {
+  //     scrollTrigger: {
+  //       trigger: "#accommodation-image",
+  //       start: "top top",
+  //       //end: "+=200%",
+  //       scrub: 1,
+  //       pin: true,
 
-        pinnedContainer: "#accommodation-image",
+  //       pinnedContainer: "#accommodation-image",
 
-        markers: true,
-      },
-    },
-  });
+  //       markers: true,
+  //     },
+  //   },
+  // });
 
-  videoTl.to("#accommodation-image video", {
-    scale: 1,
-    duration: 0.5,
-  });
+  // videoTl.to("#accommodation-image video", {
+  //   scale: 1,
+  //   duration: 0.5,
+  // });
 </script>
