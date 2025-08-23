@@ -3,13 +3,16 @@ import Dot from "@/assets/Dot.astro";
 import Container from "../layout/Container.astro";
 
 import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
+import Feature from "../ui/Feature.astro";
 ---
 
-<section id="alojamiento" class="">
+<section id="alojamiento" class="flex flex-col gap-8">
   <Container>
     <div class="text-center mb-20">
       <p class="text-4xl text-gray-900" id="accommodations-description">
-        Espacios con intención. <br />
+        <span class="text-pretty"> Espacios con intención. </span>
+        <br />
+        <br />
         Cada alojamiento es un
 
         <span class="golden-gradient"> santuario privado</span>, diseñado para
@@ -18,15 +21,17 @@ import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
     </div>
 
     <div
-      class="w-full flex items-center justify-between mb-4 relative mt-32 opacity-0"
+      class="w-full flex items-center justify-between relative mt-32 opacity-0"
       id="accommodation-title"
     >
       <div class="flex flex-col w-full">
         <h3
           class="flex items-center relative w-full gap-2 text-6xl uppercase tracking-wider font-medium overflow-hidden flex-wrap"
         >
-          <span class="text-filled"> Aura </span><Dot />
-          <span class="text-stroke"> Gaya </span>
+          <span class="flex flex-nowrap gap-2">
+            <span class="text-filled clamp-sm"> Aura </span><Dot />
+            <span class="text-stroke clamp-sm"> Gaya </span></span
+          >
           <span
             class="underline absolute block left-0 -bottom-2 w-full z-50 bg-golden h-px max-w-10/12"
           ></span>
@@ -42,33 +47,39 @@ import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
 
   <div
     id="accommodation-image"
-    class="w-full bg-[#f9eddb] rounded-4xl py-8 flex flex-col gap-8"
+    class="w-full bg-[#f9eddb] rounded-t-4xl pt-8 flex flex-col"
   >
     <Container class="w-full flex flex-col gap-4 relative">
       <div class="w-full bg-white rounded-3xl flex h-full z-10 p-6">
-        <AccommodationsCarousel client:visible />
+        <AccommodationsCarousel client:only="react" />
       </div>
-      <img
-        src="/Houses.webp"
-        class="absolute object-cover mix-blend-luminosity z-0 w-full opacity-10"
-      />
     </Container>
-    <!-- <video
-      src="/test_video.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      class="w-full h-screen object-cover rounded-lg"
-    >
-      Tu navegador no soporta videos HTML5.
-    </video> -->
+    <div class="polygon bg-[#f9eddb] h-32 w-full"></div>
   </div>
+
+  <div
+    class="flex flex-col items-center border-t pt-2 mt-16 mb-8 border-t-golden w-11/12 mx-auto"
+  >
+    <h3 class="text-2xl">Comodidades</h3>
+  </div>
+
+  <Container class="flex flex-col items-center gap-16 mb-16">
+    <Feature title="Solo adultos" description="test" />
+    <Feature
+      title="Mascotas"
+      description="(Pets are allowed on request. Charges may apply.)"
+    />
+  </Container>
 </section>
 
 <style>
   .text-filled {
     color: var(--color-gray-900);
+  }
+
+  .clamp-sm,
+  .clamp-sm div {
+    font-size: clamp(2.5rem, 5vw, 4rem);
   }
 
   .text-stroke {
@@ -82,6 +93,10 @@ import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
   #accommodation-image {
     transform: translateY(-50px) scale(0.95);
     opacity: 0;
+  }
+
+  .polygon {
+    clip-path: polygon(0 45%, 100% 0%, 100% 100%, 0% 100%);
   }
 </style>
 
@@ -97,7 +112,7 @@ import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
       duration: 0.75,
       scrollTrigger: {
         trigger: "#alojamiento",
-        start: "top top",
+        start: "top 15%",
         end: "bottom bottom",
         toggleActions: "play none none reverse",
         scrub: 2,
@@ -124,7 +139,7 @@ import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
       {
         color: "var(--color-gray-900)",
         duration: 0.2,
-        stagger: 0.1,
+        stagger: 0.2,
 
         ease: "power1.in",
       },
@@ -159,8 +174,8 @@ import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
     },
     scrollTrigger: {
       trigger: "#alojamiento",
-      start: "top center",
-      end: "center top",
+      start: "bottom bottom",
+      end: "bottom center",
 
       toggleActions: "play none none reverse",
       // markers: {

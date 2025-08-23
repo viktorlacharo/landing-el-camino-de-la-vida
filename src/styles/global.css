@@ -5,6 +5,7 @@
 
 /* El Camino de la Vida - Custom Theme Variables */
 @theme {
+  --breakpoint-xs: 390px;
   /* Brand Colors */
   --color-lavanda: #e8d7ff;
   --color-golden: #be772c;
