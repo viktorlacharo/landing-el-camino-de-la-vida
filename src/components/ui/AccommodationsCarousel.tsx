@@ -141,9 +141,9 @@ const AccommodationsCarousel = () => {
       </div>
 
       {/* Controles y texto debajo */}
-      <div className="flex flex-col xs:flex-row items-center justify-between mt-6 xs:px-4 ">
+      <div className="flex flex-col xs:flex-row justify-between mt-6">
         {/* Texto dinámico a la izquierda */}
-        <div className="flex-1 max-w-md overflow-x-hidden">
+        <div className="flex-1 flex flex-col max-w-md overflow-x-hidden">
           <h4
             className="text-xl font-semibold text-golden mb-2 carousel-title overflow-hidden"
             ref={title}
@@ -159,31 +159,42 @@ const AccommodationsCarousel = () => {
         </div>
 
         {/* Flechas a la derecha */}
-        <div className="flex items-center w-full mt-4 justify-end xs:w-auto gap-2 xs:ml-6">
-          <Button
-            variant="outline"
-            size="icon"
-            className={cn("size-8 rounded-full ", {
-              "opacity-5 cursor-not-allowed bg-white": !api?.canScrollPrev(),
-            })}
-            disabled={!api?.canScrollPrev()}
-            onClick={scrollToPrevious}
+        <div className="flex  flex-col  w-full justify-between xs:w-auto xs:ml-3">
+          <span
+            aria-description="
+        Precio por noche. El desayuno no está incluido en el precio. 128 euros por noche.
+      "
+            className="text-xs p-1 px-2 text-white bg-golden rounded-full "
           >
-            <ArrowLeft className="size-4 text-golden" />
-            <span className="sr-only">Previous slide</span>
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className={cn("size-8 rounded-full", {
-              "opacity-5 cursor-not-allowed bg-white": !api?.canScrollNext(),
-            })}
-            disabled={!api?.canScrollNext()}
-            onClick={scrollToNext}
-          >
-            <ArrowRight className="size-4 text-golden" />
-            <span className="sr-only">Next slide</span>
-          </Button>
+            128€ / noche
+          </span>
+
+          <div className="flex items-center w-full gap-2 xs:w-auto ">
+            <Button
+              variant="outline"
+              size="icon"
+              className={cn("size-8 rounded-full ", {
+                "opacity-5 cursor-not-allowed bg-white": !api?.canScrollPrev(),
+              })}
+              disabled={!api?.canScrollPrev()}
+              onClick={scrollToPrevious}
+            >
+              <ArrowLeft className="size-4 text-golden" />
+              <span className="sr-only">Previous slide</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className={cn("size-8 rounded-full", {
+                "opacity-5 cursor-not-allowed bg-white": !api?.canScrollNext(),
+              })}
+              disabled={!api?.canScrollNext()}
+              onClick={scrollToNext}
+            >
+              <ArrowRight className="size-4 text-golden" />
+              <span className="sr-only">Next slide</span>
+            </Button>
+          </div>
         </div>
       </div>
 
