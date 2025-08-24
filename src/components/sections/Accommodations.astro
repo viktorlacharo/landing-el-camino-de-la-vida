@@ -4,11 +4,19 @@ import Container from "../layout/Container.astro";
 
 import AccommodationsCarousel from "../ui/AccommodationsCarousel.tsx";
 import Feature from "../ui/Feature.astro";
+
+// Importar iconos
+import Plus18 from "@/assets/icons/Plus18.astro";
+import Pool from "@/assets/icons/Pool.astro";
+import CoffeeMaker from "@/assets/icons/CoffeeMaker.astro";
+import Snow from "@/assets/icons/Snow.astro";
+import Cook from "@/assets/icons/Cook.astro";
+import PawPrint from "@/assets/icons/PawPrint.astro";
 ---
 
 <section id="alojamiento" class="flex flex-col gap-8">
   <Container>
-    <div class="text-center mb-20">
+    <div class="text-center mb-60">
       <p class="text-4xl text-gray-900" id="accommodations-description">
         <span class="text-pretty"> Espacios con intención. </span>
         <br />
@@ -21,7 +29,7 @@ import Feature from "../ui/Feature.astro";
     </div>
 
     <div
-      class="w-full flex items-center justify-between relative mt-32 opacity-0"
+      class="w-full flex items-center justify-between relative opacity-0"
       id="accommodation-title"
     >
       <div class="flex flex-col w-full">
@@ -33,7 +41,7 @@ import Feature from "../ui/Feature.astro";
             <span class="text-stroke clamp-sm"> Gaya </span></span
           >
           <span
-            class="underline absolute block left-0 -bottom-2 w-full z-50 bg-golden h-px max-w-10/12"
+            class="underline absolute block left-0 bottom-0 w-full z-50 bg-golden h-px max-w-10/12"
           ></span>
         </h3>
 
@@ -47,27 +55,55 @@ import Feature from "../ui/Feature.astro";
 
   <div
     id="accommodation-image"
-    class="w-full bg-[#f9eddb] rounded-t-4xl pt-8 flex flex-col"
+    class="w-full bg-white rounded-t-4xl pt-8 flex flex-col"
   >
     <Container class="w-full flex flex-col gap-4 relative">
       <div class="w-full bg-white rounded-3xl flex h-full z-10 p-6">
         <AccommodationsCarousel client:only="react" />
       </div>
     </Container>
-    <div class="polygon bg-[#f9eddb] h-32 w-full"></div>
+    <div id="polygon" class="bg-background h-32 w-full"></div>
   </div>
 
-  <div
-    class="flex flex-col items-center border-t pt-2 mt-16 mb-8 border-t-golden w-11/12 mx-auto"
-  >
-    <h3 class="text-2xl">Comodidades</h3>
+  <div class="flex flex-col items-center mt-8 mb-8">
+    <h3 class="text-3xl p-2 relative">
+      <span class="mix-blend-difference text-white"> COMODIDADES</span>
+
+      <span class="shape absolute inset-0 -z-10 bg-purple-200 w-full h-full"
+      ></span>
+    </h3>
   </div>
 
-  <Container class="flex flex-col items-center gap-16 mb-16">
-    <Feature title="Solo adultos" description="test" />
+  <Container id="features" class="flex flex-col items-center gap-16 mb-16">
     <Feature
-      title="Mascotas"
-      description="(Pets are allowed on request. Charges may apply.)"
+      title="Solo adultos"
+      description="Ambiente exclusivo para adultos, perfecto para la introspección y el descanso profundo sin distracciones."
+      icon={Plus18}
+    />
+    <Feature
+      title="Piscina privada"
+      description="Acceso exclusivo a piscina al aire libre rodeada de naturaleza, ideal para relajación y meditación acuática."
+      icon={Pool}
+    />
+    <Feature
+      title="Desayuno continental"
+      description="Desayuno nutritivo con productos frescos, zumos naturales y frutas de temporada para nutrir cuerpo y alma."
+      icon={CoffeeMaker}
+    />
+    <Feature
+      title="Aire acondicionado"
+      description="Climatización en todas las estancias para garantizar tu comodidad durante tu retiro de bienestar."
+      icon={Snow}
+    />
+    <Feature
+      title="Cocina equipada"
+      description="Nevera, microondas y cafetera disponibles para preparar infusiones y comidas conscientes durante tu estancia."
+      icon={Cook}
+    />
+    <Feature
+      title="Mascotas bienvenidas"
+      description="Aceptamos mascotas bajo petición, porque entendemos que forman parte de tu familia y bienestar."
+      icon={PawPrint}
     />
   </Container>
 </section>
@@ -95,8 +131,8 @@ import Feature from "../ui/Feature.astro";
     opacity: 0;
   }
 
-  .polygon {
-    clip-path: polygon(0 45%, 100% 0%, 100% 100%, 0% 100%);
+  .shape {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
   }
 </style>
 
@@ -111,11 +147,30 @@ import Feature from "../ui/Feature.astro";
     defaults: {
       duration: 0.75,
       scrollTrigger: {
-        trigger: "#alojamiento",
-        start: "top 15%",
-        end: "bottom bottom",
+        trigger: "#accommodation-title",
+        start: "bottom bottom",
+        end: "+=500px",
         toggleActions: "play none none reverse",
         scrub: 2,
+        // markers: {
+        //   indent: 100,
+        //   startColor: "purple",
+        //   endColor: "orange",
+        // },
+      },
+    },
+  });
+
+  const polygonTl = gsap.timeline({
+    defaults: {
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#polygon",
+        start: "top top",
+        end: "+=400px",
+
+        toggleActions: "play none none reverse",
+        scrub: 1,
         // markers: {
         //   indent: 100,
         //   startColor: "purple",
@@ -131,8 +186,8 @@ import Feature from "../ui/Feature.astro";
 
   tl.to("#accommodation-title", {
     opacity: 1,
-    y: 10,
-    duration: 0.2,
+    y: 25,
+    duration: 0.4,
   })
     .to(
       textStrokeSplit.chars,
@@ -143,14 +198,13 @@ import Feature from "../ui/Feature.astro";
 
         ease: "power1.in",
       },
-      ">0.1",
+      "<",
     )
 
     .fromTo(
       ".underline",
       {
         width: "0%",
-        left: "0%",
       },
       {
         width: "100%",
@@ -159,13 +213,31 @@ import Feature from "../ui/Feature.astro";
 
       "<",
     )
-    .to("#accommodation-image", {
-      y: 0,
-      scale: 1,
-      duration: 0.3,
-      ease: "power2.in",
-      autoAlpha: 1,
-    });
+    .to(
+      "#accommodation-image",
+      {
+        y: 0,
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.in",
+        autoAlpha: 1,
+      },
+      ">+0.2",
+    );
+
+  polygonTl.fromTo(
+    "#polygon",
+    {
+      clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+      duration: 3,
+    },
+
+    {
+      clipPath: "polygon(0 100%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 3,
+      ease: "power2.inOut",
+    },
+  );
 
   const textTl = gsap.timeline({
     default: {
@@ -175,7 +247,7 @@ import Feature from "../ui/Feature.astro";
     scrollTrigger: {
       trigger: "#alojamiento",
       start: "bottom bottom",
-      end: "bottom center",
+      end: "top center",
 
       toggleActions: "play none none reverse",
       // markers: {
@@ -197,6 +269,42 @@ import Feature from "../ui/Feature.astro";
     },
     ">",
   );
+
+  const featuresTl = gsap.timeline({
+    defaults: {
+      duration: 0.75,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#features",
+        start: "top top",
+        end: "+=500px",
+        scrub: 1.5,
+        toggleActions: "play none none reverse",
+        // markers: {
+        //   startColor: "green",
+        //   endColor: "red",
+        // },
+      },
+    },
+  });
+
+  featuresTl
+    .to(".shape", {
+      clipPath: "polygon(0% 0%, 83% 0%, 100% 100%, 13% 100%)", // forma final
+      duration: 1,
+      ease: "power2.inOut",
+    })
+
+    .to(
+      "#features .feature",
+      {
+        autoAlpha: 1,
+        y: 0,
+        stagger: 0.3,
+      },
+
+      ">", 
+    );
 
   // // GSAP animation for the accommodation section
   // tl.from("#accommodation-image video", {
