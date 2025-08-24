@@ -1,22 +1,30 @@
 ---
-
 export interface Props {
   title: string;
   description: string;
   image?: string;
   icon?: any;
+  note?: string;
 }
 
-const { title, description, icon: Icon } = Astro.props;
+const { title, description, icon: Icon, note } = Astro.props;
 ---
 
-<div class="flex flex-col items-center text-center opacity-0 w-full gap-4 feature">
+<div
+  class="flex flex-col items-center text-center opacity-0 w-full gap-4 feature"
+>
   <p class="text-golden uppercase flex items-center gap-2 text-lg">
     {Icon && <Icon class="w-6 h-6 text-golden" />}
-    <span>{title}</span>
+    <span class="font-medium">{title}</span>
   </p>
 
-  <p class="text-gray-600 text-sm">{description}</p>
+  <p class="text-gray-600 text-sm flex flex-col gap-2">
+    <span>
+      {description}
+    </span>
+
+    <small class="text-xs text-gray-600">{note}</small>
+  </p>
 </div>
 
 <style>
