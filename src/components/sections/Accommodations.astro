@@ -121,42 +121,26 @@ import BBQ from "@/assets/icons/BBQ.astro";
     />
   </Container>
 
-  <div class="shape-white py-16 bg-white w-full flex flex-col gap-4">
-    <Container class="flex flex-col gap-8 items-start">
-      <h3 class="text-gray-900 uppercase text-3xl">TODO</h3>
+  <div class="shape-white pb-16 bg-white w-full flex flex-col gap-4">
+    <div class="text-center max-w-3xl">
+      <h3
+        class="text-gray-900 sr-only text-2xl font-medium mb-4 uppercase text-pretty"
+      >
+        Descubre Nuestros Espacios de Bienestar
+      </h3>
+    </div>
 
-      <div class="grid place-items-center  h-full w-full">
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          class="w-full h-full object-cover rounded-3xl aspect-9/16"
-        >
-          <source src="/videos/test_video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </Container>
-
-    <div class="h-dvh w-full" id="images">
-      <img
-        src="/breakfast.webp"
-        class="w-full h-full object-cover"
-        alt="Test"
-      />
-      <img src="/Houses.webp" class="w-full h-full object-cover" alt="Test" />
-      <img
-        src="/breakfast.webp"
-        class="w-full h-full object-cover"
-        alt="Test"
-      />
-      <img src="/Houses.webp" class="w-full h-full object-cover" alt="Test" />
-      <img
-        src="/breakfast.webp"
-        class="w-full h-full object-cover"
-        alt="Test"
-      />
+    <div class="grid place-items-center h-dvh w-full">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="w-full h-full object-cover aspect-9/16"
+      >
+        <source src="/videos/test_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </section>
@@ -358,7 +342,6 @@ import BBQ from "@/assets/icons/BBQ.astro";
   );
 
   gsap.utils.toArray("#features .feature").forEach((feature, i) => {
-    console.log(feature);
     gsap.fromTo(
       feature as gsap.TweenTarget,
       { autoAlpha: 0, y: 30 },
@@ -373,7 +356,7 @@ import BBQ from "@/assets/icons/BBQ.astro";
           end: "top top",
           toggleActions: "play none none reverse",
           // scrub: 1, // optional if you want smoothness
-          markers: true,
+          // markers: true,
         },
       },
     );
@@ -410,6 +393,28 @@ import BBQ from "@/assets/icons/BBQ.astro";
       ease: "power2.inOut",
     },
   );
+
+  let images = gsap.utils.toArray("#images .img-wrap");
+
+  // https://www.youtube.com/watch?v=8gCQZSe40OY
+  images.forEach((img, i) => {
+    const isLast = i === images.length - 1;
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: img as gsap.DOMTarget,
+          start: "top top",
+
+          scrub: 2.5,
+        },
+      })
+      .to(img as gsap.TweenTarget, {
+        y: isLast ? -50 : -100,
+        ease: "elastic.inOut",
+        duration: 1,
+      });
+  });
 
   // // GSAP animation for the accommodation section
   // tl.from("#accommodation-image video", {
