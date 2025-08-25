@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<Layout title="Galería - El Camino de la Vida">
+  <Header />
+  <div class="min-h-screen bg-background p-8">
+    <h1 class="text-4xl font-bold text-center mb-8">Galería</h1>
+    
+    <div class="max-w-4xl mx-auto">
+      <a href="/"  class="text-golden hover:underline mb-4 inline-block">← Volver</a>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <img src="/breakfast.webp" class="w-full h-64 object-cover rounded-lg" alt="Desayuno" />
+        <img src="/Houses.webp" class="w-full h-64 object-cover rounded-lg" alt="Casas" />
+        <img src="/pool_placeholder.webp" class="w-full h-64 object-cover rounded-lg" alt="Piscina" />
+        <img src="/house_placeholder.webp" class="w-full h-64 object-cover rounded-lg" alt="Interior" />
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>

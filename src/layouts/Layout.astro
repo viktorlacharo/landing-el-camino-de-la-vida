@@ -1,6 +1,7 @@
 ---
 import ScrollDownArrow from "@/assets/ScrollDownArrow.astro";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -51,6 +52,8 @@ const {
       href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <ClientRouter />
   </head>
 
   <body class="text-gray-900 bg-background font-sans">
@@ -62,8 +65,3 @@ const {
     </div>
   </body>
 </html>
-
-
-
-
-

@@ -93,12 +93,12 @@ import BBQ from "@/assets/icons/BBQ.astro";
       description="Acceso exclusivo a piscina al aire libre rodeada de naturaleza, ideal para relajación y meditación acuática."
       icon={Pool}
     />
-    <Feature
+    <!-- <Feature
       title="Desayuno continental"
       description="Desayuno nutritivo con productos frescos, zumos naturales y frutas de temporada para nutrir cuerpo y alma.  "
       icon={CoffeeMaker}
       note="(+7€ / persona)"
-    />
+    /> -->
     <Feature
       title="Aire acondicionado"
       description="Climatización en todas las estancias para garantizar tu comodidad durante tu retiro de bienestar."
@@ -121,11 +121,27 @@ import BBQ from "@/assets/icons/BBQ.astro";
     />
   </Container>
 
-  <div class="shape-white h-52 py-16 bg-white w-full flex flex-col">
-    <Container class="flex flex-col gap-8 items-start "
+  <div class="shape-white pb-16 bg-white w-full flex flex-col gap-4">
+    <div class="text-center max-w-3xl">
+      <h3
+        class="text-gray-900 sr-only text-2xl font-medium mb-4 uppercase text-pretty"
       >
-      <h3 class="text-gray-900 uppercase text-3xl">TODO</h3>
-    </Container>
+        Descubre Nuestros Espacios de Bienestar
+      </h3>
+    </div>
+
+    <div class="grid place-items-center h-dvh w-full">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="w-full h-full object-cover aspect-9/16"
+      >
+        <source src="/videos/test_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
 </section>
 
@@ -315,28 +331,36 @@ import BBQ from "@/assets/icons/BBQ.astro";
     },
   });
 
-  featuresTl
+  featuresTl.to(
+    ".shape",
+    {
+      clipPath: "polygon(0% 0%, 83% 0%, 100% 100%, 13% 100%)", // forma final
+      duration: 1,
+      ease: "power2.inOut",
+    },
+    ">",
+  );
 
-    .to(
-      ".shape",
-      {
-        clipPath: "polygon(0% 0%, 83% 0%, 100% 100%, 13% 100%)", // forma final
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      ">",
-    )
-
-    .to(
-      "#features .feature",
+  gsap.utils.toArray("#features .feature").forEach((feature, i) => {
+    gsap.fromTo(
+      feature as gsap.TweenTarget,
+      { autoAlpha: 0, y: 30 },
       {
         autoAlpha: 1,
         y: 0,
-        stagger: 0.3,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: feature as gsap.DOMTarget,
+          start: "top 15%", // when top of feature is 80% down the viewport
+          end: "top top",
+          toggleActions: "play none none reverse",
+          // scrub: 1, // optional if you want smoothness
+          // markers: true,
+        },
       },
-
-      ">",
     );
+  });
 
   const whiteShapeTL = gsap.timeline({
     defaults: {
@@ -359,7 +383,7 @@ import BBQ from "@/assets/icons/BBQ.astro";
   whiteShapeTL.fromTo(
     ".shape-white",
     {
-      clipPath: "polygon(0%  0%,100% 45%,100% 100%,0% 100%)",
+      clipPath: "polygon(0% 100%,100% 45%,100% 100%,0% 100%)",
       duration: 3,
     },
 
@@ -369,6 +393,28 @@ import BBQ from "@/assets/icons/BBQ.astro";
       ease: "power2.inOut",
     },
   );
+
+  let images = gsap.utils.toArray("#images .img-wrap");
+
+  // https://www.youtube.com/watch?v=8gCQZSe40OY
+  images.forEach((img, i) => {
+    const isLast = i === images.length - 1;
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: img as gsap.DOMTarget,
+          start: "top top",
+
+          scrub: 2.5,
+        },
+      })
+      .to(img as gsap.TweenTarget, {
+        y: isLast ? -50 : -100,
+        ease: "elastic.inOut",
+        duration: 1,
+      });
+  });
 
   // // GSAP animation for the accommodation section
   // tl.from("#accommodation-image video", {
