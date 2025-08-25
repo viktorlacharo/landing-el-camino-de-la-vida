@@ -21,7 +21,7 @@ import Container from "../layout/Container.astro";
     </div>
 
     <!-- Workshops Horizontal Scroll Container -->
-    <div class="relative" >
+    <div class="relative">
       <!-- Scroll Hint -->
 
       <!-- Workshops Scroll Container -->
@@ -329,100 +329,3 @@ import Container from "../layout/Container.astro";
     </div>
   </Container>
 </section>
-<!-- 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  // Registrar ScrollTrigger (ScrollSmoother ya no es necesario con Lenis)
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Esperar a que el DOM y Lenis estén listos
-  document.addEventListener("DOMContentLoaded", () => {
-    // Esperar un frame adicional para asegurar que Lenis está inicializado
-    requestAnimationFrame(() => {
-      const workshopsContainer = document.getElementById("talleres");
-      const workshopsTrack = document.getElementById("workshops-track");
-      const workshopsViewport = document.getElementById("workshops-viewport");
-
-      if (!workshopsContainer || !workshopsTrack || !workshopsViewport) return;
-
-      // Función para calcular dimensiones
-      const calculateDimensions = () => {
-        const trackWidth = workshopsTrack.scrollWidth;
-        const viewportWidth = workshopsViewport.offsetWidth;
-        const maxScroll = trackWidth - viewportWidth;
-        return { trackWidth, viewportWidth, maxScroll };
-      };
-
-      const { maxScroll } = calculateDimensions();
-
-      // Solo aplicar la animación si hay contenido que scrollear
-      if (maxScroll > 300) {
-        // Crear una timeline para el scroll horizontal
-        const horizontalTimeline = gsap.timeline({
-          ease: "none",
-          scrollTrigger: {
-            trigger: workshopsContainer,
-            pin: true, // CLAVE: Esto bloquea el scroll vertical
-            start: "top top", // Empieza cuando la sección  llega al centro de la pantalla
-            scrub: 1, // Smooth scrubbing
-            anticipatePin: 1, // Mejor rendimiento en mobile
-            invalidateOnRefresh: true, // Recalcular en refresh
-            onUpdate: (self) => {
-              // Debug opcional
-              // console.log(`Progress: ${self.progress.toFixed(3)}`);
-            },
-            // onRefresh: () => {
-            //   // Recalcular cuando se redimensiona
-            //   const { maxScroll: newMaxScroll } = calculateDimensions();
-            //   if (newMaxScroll > 0) {
-            //     // Actualizar la animación con las nuevas dimensiones
-            //     horizontalTimeline.to(
-            //       workshopsTrack,
-            //       {
-            //         x: -newMaxScroll,
-            //         duration: 1,
-            //         ease: "none",
-            //       },
-            //       0
-            //     );
-            //   }
-            // },
-          },
-        });
-
-        // Agregar la animación horizontal a la timeline
-        horizontalTimeline.to(workshopsTrack, {
-          x: -maxScroll,
-          duration: 1,
-          ease: "none",
-        });
-
-        // Refresh al redimensionar la ventana
-        let resizeTimeout: number;
-        window.addEventListener("resize", () => {
-          clearTimeout(resizeTimeout);
-          resizeTimeout = window.setTimeout(() => {
-            ScrollTrigger.refresh();
-          }, 250);
-        });
-
-        // Debug: Log que ScrollTrigger está funcionando
-        console.log(
-          "ScrollTrigger initialized for workshops with maxScroll:",
-          maxScroll
-        );
-        console.log("ScrollTrigger plugins registered:", gsap.plugins);
-
-        // Opcional: Agregar indicadores visuales durante desarrollo
-        // ScrollTrigger.create({
-        //   trigger: workshopsContainer,
-        //   start: "top top",
-        //   end: `+=${maxScroll + window.innerHeight}`,
-        //   markers: true // Quitar en producción
-        // });
-      }
-    });
-  });
-</script>  -->
