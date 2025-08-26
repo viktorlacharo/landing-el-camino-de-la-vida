@@ -22,6 +22,7 @@
   /* Typography */
   --font-display: "Montserrat", sans-serif;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-indie: "Indie Flower", cursive;
 
   /* Custom Font Sizes */
   --text-hero: 2.5rem;

@@ -15,7 +15,7 @@ import PawPrint from "@/assets/icons/PawPrint.astro";
 import Bed from "@/assets/icons/Bed.astro";
 import BBQ from "@/assets/icons/BBQ.astro";
 import AccommodationImages from "../ui/AccomodationImages";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Diamond } from "lucide-react";
 ---
 
 <section id="alojamiento" class="flex flex-col gap-8">
@@ -69,19 +69,35 @@ import { ArrowUpRight } from "lucide-react";
     <div id="polygon" class="bg-background h-32 w-full"></div>
   </div>
 
-  <div id="features-title" class="flex flex-col items-center mt-8 mb-8">
-    <h3 class="text-3xl p-2 relative">
-      <span class="mix-blend-difference text-white"> COMODIDADES</span>
+  <Container class="px-16">
+    <div
+      id="features-title"
+      class="flex w-full justify-between items-center mt-8 mb-8 "
+    >
+      <div class="size-2 rotate-45 bg-golden"></div>
 
-      <span class="shape absolute inset-0 -z-10 bg-purple-200 w-full h-full"
-      ></span>
-    </h3>
-  </div>
+      <h3 class="text-3xl p-2 relative">
+        <span class="text-golden font-indie -z-10 -rotate-3 -top-8 absolute"
+          >Lo mejor, para ti</span
+        >
+        <span class="mix-blend-difference text-white"> COMODIDADES</span>
 
-  <Container id="features" class="flex flex-col items-center gap-16 mb-4 relative">
+        <span class="shape absolute inset-0 -z-10 bg-purple-200 w-full h-full"
+        ></span>
+      </h3>
 
+      <div class="size-2 rotate-45 bg-golden"></div>
+    </div>
+  </Container>
 
-    <div class="absolute z-[-1] left-0 top-0 bg-gradient-to-b from-background via-golden/20 to-b h-[140%] w-full"></div>
+  <Container
+    id="features"
+    class="flex flex-col items-center gap-16 mb-4 relative"
+  >
+    <div
+      class="absolute z-[-1] left-0 top-0 bg-gradient-to-b from-background via-golden/20 to-b h-[140%] w-full"
+    >
+    </div>
     <Feature
       title="Cama king size"
       description="Cada vivienda cuenta con una amplia cama doble king size para dos personas, diseñada para el descanso reparador que mereces durante tu retiro de bienestar."
