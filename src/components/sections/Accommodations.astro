@@ -14,6 +14,8 @@ import Cook from "@/assets/icons/Cook.astro";
 import PawPrint from "@/assets/icons/PawPrint.astro";
 import Bed from "@/assets/icons/Bed.astro";
 import BBQ from "@/assets/icons/BBQ.astro";
+import AccommodationImages from "../ui/AccomodationImages";
+import { ArrowUpRight } from "lucide-react";
 ---
 
 <section id="alojamiento" class="flex flex-col gap-8">
@@ -76,7 +78,10 @@ import BBQ from "@/assets/icons/BBQ.astro";
     </h3>
   </div>
 
-  <Container id="features" class="flex flex-col items-center gap-16 mb-4">
+  <Container id="features" class="flex flex-col items-center gap-16 mb-4 relative">
+
+
+    <div class="absolute z-[-1] left-0 top-0 bg-gradient-to-b from-background via-golden/20 to-b h-[140%] w-full"></div>
     <Feature
       title="Cama king size"
       description="Cada vivienda cuenta con una amplia cama doble king size para dos personas, diseñada para el descanso reparador que mereces durante tu retiro de bienestar."
@@ -121,7 +126,7 @@ import BBQ from "@/assets/icons/BBQ.astro";
     />
   </Container>
 
-  <div class="shape-white pb-16 bg-white w-full flex flex-col gap-4">
+  <div class="shape-white pb-16 w-full flex flex-col gap-4">
     <div class="text-center max-w-3xl">
       <h3
         class="text-gray-900 sr-only text-2xl font-medium mb-4 uppercase text-pretty"
@@ -130,7 +135,7 @@ import BBQ from "@/assets/icons/BBQ.astro";
       </h3>
     </div>
 
-    <div class="grid place-items-center h-dvh w-full">
+    <!-- <div class="grid place-items-center w-full">
       <video
         autoplay
         muted
@@ -141,7 +146,23 @@ import BBQ from "@/assets/icons/BBQ.astro";
         <source src="/videos/test_video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </div>
+    </div> -->
+
+    <Container>
+      <div id="images" class="flex flex-col gap-4 w-full">
+        <AccommodationImages client:only="react" />
+
+        <!-- <a
+          class="bg-lavanda self-end px-2 font-medium py-1 uppercase rounded-full flex items-center gap-2 text-sm"
+          href="/galeria"
+        >
+          Ver más imágenes
+          <span class="size-4 bg-white rounded-full grid place-items-center">
+            <ArrowUpRight className="size-3 shrink-0" />
+          </span>
+        </a> -->
+      </div>
+    </Container>
   </div>
 </section>
 
@@ -322,7 +343,8 @@ import BBQ from "@/assets/icons/BBQ.astro";
         end: "+=300px",
 
         scrub: 1.5,
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
+
         // markers: {
         //   startColor: "green",
         //   endColor: "red",
@@ -354,7 +376,7 @@ import BBQ from "@/assets/icons/BBQ.astro";
           trigger: feature as gsap.DOMTarget,
           start: "top 15%", // when top of feature is 80% down the viewport
           end: "top top",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
           // scrub: 1, // optional if you want smoothness
           // markers: true,
         },
@@ -380,19 +402,19 @@ import BBQ from "@/assets/icons/BBQ.astro";
     },
   });
 
-  whiteShapeTL.fromTo(
-    ".shape-white",
-    {
-      clipPath: "polygon(0% 100%,100% 45%,100% 100%,0% 100%)",
-      duration: 3,
-    },
+  // whiteShapeTL.fromTo(
+  //   ".shape-white",
+  //   {
+  //     clipPath: "polygon(0% 100%,100% 45%,100% 100%,0% 100%)",
+  //     duration: 3,
+  //   },
 
-    {
-      clipPath: "polygon(0%  0%,100% 0%,100% 100%,0% 100%)",
-      duration: 3,
-      ease: "power2.inOut",
-    },
-  );
+  //   {
+  //     clipPath: "polygon(0%  0%,100% 0%,100% 100%,0% 100%)",
+  //     duration: 3,
+  //     ease: "power2.inOut",
+  //   },
+  // );
 
   let images = gsap.utils.toArray("#images .img-wrap");
 
