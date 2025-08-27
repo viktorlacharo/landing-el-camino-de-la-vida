@@ -1,0 +1,12 @@
+---
+interface Props {
+  name: string;
+  index: number;
+}
+
+const { name, index } = Astro.props;
+---
+
+<p class="text-2xl tracking-wider uppercase text-left font-mono">
+  <span class="text-golden">{index + 1}.</span>{name}
+</p>

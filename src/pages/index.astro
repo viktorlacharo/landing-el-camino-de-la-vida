@@ -18,9 +18,9 @@ import Contact from "../components/sections/Contact.astro";
   <main class="scroll-smooth">
     <Hero />
     <Accommodations />
+    <Therapies />
     <Workshops />
     <Packs />
-    <Therapies />
     <Contact />
   </main>
   <Footer />
@@ -64,7 +64,6 @@ import Contact from "../components/sections/Contact.astro";
     autoResize: true,
     gestureOrientation: "vertical",
     smoothWheel: true,
-    
 
     syncTouch: true, // NUEVO: Sincroniza movimientos multitouch
   });
@@ -88,4 +87,7 @@ import Contact from "../components/sections/Contact.astro";
     // console.log(e)
     // console.log(e.scroll, e.limit, e.velocity, e.direction, e.progress);
   });
+
+  // Fija la última parte de alojamiento justo antes de terapias
+
 </script>
