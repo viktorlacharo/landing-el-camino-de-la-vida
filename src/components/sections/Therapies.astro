@@ -1,20 +1,64 @@
 ---
-import { ArrowRight, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import Container from "../layout/Container.astro";
-import Therapy from "../ui/Therapy.astro";
+import Therapy from "../ui/Therapy";
 
 const therapies = [
-  "Tarot Evolutivo",
-  "Reiki",
-  "Constelaciones Familiares",
-  "Sanación del Niño Interior",
-  "Acompañamiento y Crecimiento Personal",
-  "Flores de Bach",
-  "Psicología Transgeneracional",
-  "Gestalt",
-  "Mediumnidad",
-  "Meditación",
-  "Rituales",
+  {
+    name: "Tarot Evolutivo",
+    description:
+      "¿Te sientes perdido/a en decisiones importantes? En una sesión de tarot evolutivo te ayudo a ver patrones en tu vida que quizás no notas. No es adivinar el futuro, sino entender mejor tu presente. Usamos las cartas como un espejo para reflexionar sobre relaciones, trabajo o cambios que estás viviendo. Ideal si necesitas claridad sobre qué paso dar siguiente.",
+  },
+  {
+    name: "Reiki",
+    description:
+      "¿Sientes estrés, ansiedad o agotamiento que no se va ni durmiendo? El Reiki es como un 'reseteo' energético donde solo tienes que tumbarte y recibir. Pongo mis manos en puntos específicos de tu cuerpo (sin tocar) para desbloquear tensiones acumuladas. Muchas personas sienten calma profunda, como si hubieran dormido 8 horas. Perfecto si tu mente no para nunca.",
+  },
+  {
+    name: "Constelaciones Familiares",
+    description:
+      "¿Repites patrones en relaciones que no entiendes? ¿Sientes cargas que no son tuyas? En constelaciones vemos tu árbol familiar como un sistema donde todo está conectado. Representamos a tu familia en el espacio para descubrir dinámicas ocultas. Es sorprendente ver cómo problemas actuales pueden venir de conflictos familiares del pasado. Te ayuda a liberarte de cargas heredadas.",
+  },
+  {
+    name: "Sanación del Niño Interior",
+    description:
+      "¿Te criticas mucho, tienes miedo al abandono o baja autoestima? Tu niño interior son esas partes emocionales heridas en la infancia que siguen afectándote de adulto/a. Trabajamos con técnicas para reconectar con esa parte, darle lo que necesitó entonces. Es un proceso profundo pero sanador. Muchas personas sienten más autocompasión y menos autocrítica después.",
+  },
+  {
+    name: "Acompañamiento y Crecimiento Personal",
+    description:
+      "¿Necesitas alguien que te escuche sin juzgar mientras ordenas tu vida? Es como tener una conversación profunda contigo mismo/a pero con guía profesional. Hablamos de lo que te preocupa, identificamos patrones que te limitan y creamos estrategias prácticas para cambiar lo que quieras. Es terapia de apoyo personalizada para momentos de cambio o crisis.",
+  },
+  {
+    name: "Flores de Bach",
+    description:
+      "¿Te sientes abrumado/a, con miedo, tristeza o ira que no puedes controlar? Las flores de Bach son remedios naturales para equilibrar emociones específicas. Después de evaluar tu estado emocional, preparo una mezcla personalizada de esencias florales. Es sutil pero efectivo para ansiedad, depresión leve, bloqueos emocionales. Como una 'homeopatía' para las emociones.",
+  },
+  {
+    name: "Psicología Transgeneracional",
+    description:
+      "¿Sientes que cargas con problemas que no son tuyos? ¿Hay enfermedades o patrones que se repiten en tu familia? Analizamos tu árbol genealógico para identificar traumas no resueltos que se transmiten de generación en generación. Trabajamos para cortar esas cadenas invisibles. Es revelador ver cómo eventos del pasado familiar aún te afectan hoy.",
+  },
+  {
+    name: "Gestalt",
+    description:
+      "¿Vives siempre preocupado/a por el pasado o el futuro? Gestalt significa trabajar con lo que sientes AHORA, en este momento. Es terapia muy práctica donde exploramos cómo te relacionas contigo y otros en el presente. Usamos ejercicios, diálogo directo y técnicas corporales. Perfecto si tiendes a 'vivir en tu cabeza' y necesitas reconectar con tus emociones y sensaciones.",
+  },
+  {
+    name: "Mediumnidad",
+    description:
+      "¿Has perdido a alguien querido y necesitas paz o cierre? Como médium puedo conectar con personas fallecidas para transmitir mensajes de amor, perdón o despedida que pueden traerte sanación. No es espectáculo, es un espacio sagrado de comunicación espiritual. Muchas personas encuentran paz al recibir esa última conversación que no pudieron tener.",
+  },
+  {
+    name: "Meditación",
+    description:
+      "¿Tu mente va a mil por hora y no sabes cómo pararla? Te enseño técnicas de meditación adaptadas a tu estilo de vida. No necesitas ser 'zen' ni sentarte en posición de loto. Aprendes a observar tus pensamientos sin engancharte, a respirar conscientemente y a encontrar momentos de calma en tu día a día. Es entrenamiento mental práctico para el estrés moderno.",
+  },
+  {
+    name: "Rituales",
+    description:
+      "¿Quieres cerrar una etapa, sanar una ruptura o marcar un nuevo comienzo? Los rituales son ceremonias simbólicas que ayudan a tu inconsciente a procesar cambios importantes. Pueden incluir escritura, fuego, elementos naturales o símbolos personales. Es una forma poderosa de despedirte del pasado y abrirte a lo nuevo. Tu mente y cuerpo entienden el simbolismo.",
+  },
 ];
 ---
 
@@ -36,10 +80,10 @@ const therapies = [
 
       <div class="relative text-center mb-16">
         <div class="therapies-bg flex flex-col gap-4">
-          <div class="flex flex-col items-center w-full">
+          <div class="flex flex-col items-center gap-4 w-full">
             <!-- <img src="/moon_sun.webp" alt="Terapias" class="" /> -->
             <a
-            href="/terapias"
+              href="/terapias"
               class="text-2xl font-semibold flex items-center gap-8 font-mono text-left w-full"
             >
               <span>TERAPIAS</span>
@@ -50,26 +94,30 @@ const therapies = [
                 /></span
               >
             </a>
+            <p
+              class="text-lg text-gray-900 mb-4 text-left max-w-3xl mx-auto text-pretty"
+            >
+              Además de nuestros alojamientos, ofrecemos una variedad de <i
+                class="underline text-golden underline-offset-2 underline-golden"
+              >
+                terapias</i
+              > diseñadas para apoyar tu crecimiento personal y espiritual.
+            </p>
           </div>
 
           <div class="flex flex-col gap-6 w-full justify-start">
             {
               therapies.map((therapy, i) => (
-                <Therapy name={therapy} index={i} />
+                <Therapy
+                  client:only="react"
+                  name={therapy.name}
+                  description={therapy.description}
+                  index={i}
+                />
               ))
             }
           </div>
         </div>
-
-        <p
-          class="text-lg text-gray-900 mt-4 text-left max-w-3xl mx-auto text-pretty"
-        >
-          Además de nuestros alojamientos, ofrecemos una variedad de <i
-            class="underline text-golden underline-offset-2 underline-golden"
-          >
-            terapias</i
-          > diseñadas para apoyar tu crecimiento personal y espiritual.
-        </p>
       </div>
       <Container />
     </Container>
@@ -114,9 +162,9 @@ const therapies = [
         scrollTrigger: {
           trigger: therapiesSection, // The section controlling parallax
           start: "bottom top",
-          end: "+=700", // Adjust as needed
+          end: "+=500", // Adjust as needed
           scrub: 0.2, // Makes the animation follow scroll position
-          
+
           //markers: true,
           toggleActions: "play none none reverse",
         },
