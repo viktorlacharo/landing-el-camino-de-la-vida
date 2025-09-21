@@ -1,0 +1,3 @@
+- Necesito las imagenes de las casetas
+- Necesito el numero de telefono para el WhatsApp.
+- Consultar el pack completo

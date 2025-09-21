@@ -16,11 +16,18 @@ import Contact from "../components/sections/Contact.astro";
 >
   <Header />
   <main class="scroll-smooth">
-    <!-- <Hero /> -->
-    <!-- <Accommodations /> -->
-    <Therapies />
+    <Hero />
+    <Accommodations />
+    <div class="relative">
+      <div
+        class="absolute z-[-1] left-0 top-0 bg-gradient-to-b from-background via-golden/15 to-b h-[140%] w-full"
+      >
+      </div>
+      <Therapies />
+      <Packs />
+    </div>
+
     <Workshops />
-    <Packs />
     <Contact />
   </main>
   <Footer />
@@ -89,5 +96,4 @@ import Contact from "../components/sections/Contact.astro";
   });
 
   // Fija la última parte de alojamiento justo antes de terapias
-
 </script>

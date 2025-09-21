@@ -249,7 +249,7 @@ const Therapy: FC<TherapyProps> = ({ name, index, description }) => {
     <>
       {/* Therapy Button */}
 
-      <div className="therapy-item border-b border-gray-200/30">
+      <div className="therapy-item ">
         <button
           ref={refButton}
           onClick={toggleMenu}
