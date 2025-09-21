@@ -10,11 +10,6 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   {
-    href: "#talleres",
-    title: "Talleres",
-  },
-
-  {
     href: "#alojamiento",
     title: "Alojamiento",
   },
@@ -27,6 +22,10 @@ const NAV_ITEMS: NavItem[] = [
   {
     href: "#packs",
     title: "Packs",
+  },
+  {
+    href: "#talleres",
+    title: "Talleres",
   },
 
   {
@@ -50,7 +49,6 @@ function BurgerIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
 
 // Mobile Menu Component - Solo para móvil
 export function HeaderMobile() {
@@ -99,7 +97,7 @@ export function HeaderMobile() {
             rotation: 45,
             transformOrigin: "55% 55%",
           },
-          "<"
+          "<",
         )
         .to(
           navbarList,
@@ -107,7 +105,7 @@ export function HeaderMobile() {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             visibility: "visible",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .to(
           navbarItems,
@@ -117,7 +115,7 @@ export function HeaderMobile() {
             ease: "elastic.out(1, 0.75)",
             stagger: 0.1,
           },
-          "-=0.2"
+          "-=0.2",
         )
         .to(
           socialMediaLinks,
@@ -128,7 +126,7 @@ export function HeaderMobile() {
             ease: "elastic.inOut(0.75, 0.25)",
             duration: 0.3,
           },
-          "<"
+          "<",
         );
     } else {
       // Close animation
@@ -147,14 +145,14 @@ export function HeaderMobile() {
             ease: "power2.out",
             stagger: 0.05,
           },
-          "-=0.1"
+          "-=0.1",
         )
         .to(
           navbarList,
           {
             clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
           },
-          "-=0.3"
+          "-=0.3",
         )
         .to(navbarList, {
           visibility: "hidden",
