@@ -1,331 +1,357 @@
 ---
 import Container from "../layout/Container.astro";
+
+interface Workshop {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  schedule: string;
+  color: string;
+  iconPath: string;
+  buttonText: string;
+}
+
+const workshops: Workshop[] = [
+  {
+    id: "talleres-grupales",
+    title: "Talleres Grupales",
+    description:
+      "Espacios de aprendizaje y crecimiento compartido. Conecta con otros buscadores y expande tu consciencia en comunidad.",
+    price: "€40",
+    schedule: "Sábados 10:00h",
+    color: "bg-[#e8c5c5]",
+    iconPath: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    buttonText: "Unirme al Taller",
+  },
+  {
+    id: "constelaciones",
+    title: "Constelaciones Familiares",
+    description:
+      "Sana patrones transgeneracionales y libera cargas familiares. Descubre tu lugar en el sistema familiar.",
+    price: "€60",
+    schedule: "Domingos 11:00h",
+    color: "bg-[#d4c5e8]",
+    iconPath: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+    buttonText: "Participar",
+  },
+  {
+    id: "nino-interior",
+    title: "Sanación Niño Interior",
+    description:
+      "Reconecta con tu esencia infantil y sana heridas de la infancia. Recupera tu inocencia y alegría natural.",
+    price: "€50",
+    schedule: "Viernes 18:00h",
+    color: "bg-[#c5e8d4]",
+    iconPath: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+    buttonText: "Sanar Heridas",
+  },
+  {
+    id: "meditaciones",
+    title: "Meditaciones Guiadas",
+    description:
+      "Viajes internos de paz y autoconocimiento. Aprende técnicas para calmar la mente y conectar con tu ser.",
+    price: "€30",
+    schedule: "Martes y Jueves 19:00h",
+    color: "bg-[#f5e8c5]",
+    iconPath: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z",
+    buttonText: "Meditar Juntos",
+  },
+  {
+    id: "arteterapia",
+    title: "Arteterapia",
+    description:
+      "Expresa y sana a través del arte. Libera emociones mediante la creatividad y el proceso artístico.",
+    price: "€45",
+    schedule: "Miércoles 17:00h",
+    color: "bg-[#d4c5e8]",
+    iconPath: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+    buttonText: "Crear y Sanar",
+  },
+  {
+    id: "rituales",
+    title: "Rituales para Decretar",
+    description:
+      "Aprende a crear y realizar rituales sagrados. Manifiesta tus intenciones con ceremonias poderosas.",
+    price: "€55",
+    schedule: "Lunas Llenas y Nuevas",
+    color: "bg-[#d4a574]/30",
+    iconPath: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+    buttonText: "Aprender Rituales",
+  },
+];
+
+interface Benefit {
+  iconPath: string;
+  title: string;
+  description: string;
+  color: string;
+}
+
+const benefits: Benefit[] = [
+  {
+    iconPath: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    title: "Comunidad",
+    description: "Conecta con personas afines en tu camino",
+    color: "bg-[#d4c5e8]",
+  },
+  {
+    iconPath: "M13 10V3L4 14h7v7l9-11h-7z",
+    title: "Energía Amplificada",
+    description: "La fuerza grupal potencia la transformación",
+    color: "bg-[#c5e8d4]",
+  },
+  {
+    iconPath: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+    title: "Apoyo Mutuo",
+    description: "Comparte y recibe en un espacio seguro",
+    color: "bg-[#e8c5c5]",
+  },
+  {
+    iconPath: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+    title: "Aprendizaje",
+    description: "Aprende de las experiencias de otros",
+    color: "bg-[#f5e8c5]",
+  },
+];
 ---
 
-<section
-  id="talleres"
-  class="py-section bg-dark-bg rounded-2xl"
->
+<section id="talleres" class="py-16 md:py-24 relative overflow-hidden">
+
   <Container>
     <!-- Section Header -->
-    <div id="workspace-title" class="text-center mb-16">
-      <h2
-        class="text-section md:text-5xl font-display font-bold mb-4 text-dark-bg"
-      >
+    <div id="workshops-title" class="text-center mb-10 md:mb-16">
+      <h2 class="workshop-heading text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6 text-gray-900 leading-tight px-2">
         Talleres de Crecimiento Grupal
       </h2>
-      <p class="text-xl text-gray-900 max-w-3xl mx-auto">
-        Experiencias grupales que potencian la transformación compartida.
-        Conecta con otros buscadores y amplifica tu proceso de sanación.
+      <p class="workshop-subtitle text-base md:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed px-4">
+        Experiencias grupales que potencian la transformación compartida. Conecta con otros buscadores y amplifica
+        tu proceso de sanación.
       </p>
     </div>
 
-    <!-- Workshops Horizontal Scroll Container -->
-    <div class="relative">
-      <!-- Scroll Hint -->
+    <!-- Progress Bar -->
+    <div class="mb-6 md:mb-8 px-4">
+      <div class="h-1.5 bg-gray-200 rounded-full overflow-hidden max-w-xs mx-auto">
+        <div
+          id="scroll-progress-bar"
+          class="h-full bg-gradient-to-r from-golden to-rosa-empolvado transition-all duration-200 ease-out rounded-full"
+          style="width: 0%"
+        >
+        </div>
+      </div>
+      <p class="text-center text-xs md:text-sm text-gray-600 mt-2 md:mt-3">
+        Desliza para explorar todos los talleres
+      </p>
+    </div>
 
-      <!-- Workshops Scroll Container -->
-      <div class="overflow-hidden pb-6" id="workshops-viewport">
-        <div class="flex space-x-6 min-w-max px-4" id="workshops-track">
-          <!-- Workshop 1: Círculo de Mujeres -->
-          <div
-            class="bg-white rounded-2xl p-6 shadow-lg min-w-[300px] max-w-[300px] hover:shadow-xl transition-shadow duration-300 workshop-card"
-          >
-            <div
-              class="w-16 h-16 bg-rosa-empolvado rounded-full flex items-center justify-center mb-4 mx-auto"
-            >
-              <svg
-                class="w-8 h-8 text-dark-bg"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-display font-semibold text-center mb-3">
-              Círculo de Mujeres
-            </h3>
-            <p class="text-gray-700 text-sm text-center mb-4 leading-relaxed">
-              Espacio sagrado femenino para compartir, sanar y empoderar.
-              Reconecta con tu esencia femenina auténtica.
-            </p>
-            <div class="text-center space-y-2">
-              <p class="text-golden font-semibold">€45/sesión</p>
-              <p class="text-xs text-gray-600">Sábados 10:00h</p>
-              <button
-                class="w-full bg-rosa-empolvado text-dark-bg py-2 rounded-full text-sm font-semibold hover:bg-rosa-empolvado/90 transition-colors duration-200"
-              >
-                Unirme al Círculo
-              </button>
-            </div>
-          </div>
+    <!-- Workshops Carousel -->
+    <div class="relative mb-12 md:mb-20">
 
-          <!-- Workshop 2: Meditación Luna Nueva -->
-          <div
-            class="bg-white rounded-2xl p-6 shadow-lg min-w-[300px] max-w-[300px] hover:shadow-xl transition-shadow duration-300 workshop-card"
-          >
+      <div
+        id="workshops-scroll-container"
+        class="overflow-x-auto overflow-y-hidden pb-4 md:pb-6 -mx-4 px-4 md:mx-0 md:px-0"
+        style="scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; scroll-padding-left: 1rem; scroll-padding-right: 1rem;"
+      >
+        <div id="workshops-cards" class="flex gap-4 md:gap-6 pl-4 pr-4 md:pl-8 md:pr-8">
+          {workshops.map((workshop) => (
             <div
-              class="w-16 h-16 bg-lavanda rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="workshop-card flex-shrink-0 bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 w-[280px] md:w-[340px] flex flex-col border border-gray-200"
+              style="scroll-snap-align: start; scroll-snap-stop: always;"
             >
-              <svg
-                class="w-8 h-8 text-dark-bg"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              <div
+                class={`w-16 h-16 md:w-20 md:h-20 ${workshop.color} rounded-full flex items-center justify-center mb-4 md:mb-5 mx-auto text-gray-900 transition-transform duration-300 hover:scale-105`}
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-display font-semibold text-center mb-3">
-              Meditación Luna Nueva
-            </h3>
-            <p class="text-gray-700 text-sm text-center mb-4 leading-relaxed">
-              Ceremonia de intención y manifestación en sincronía con los ciclos
-              lunares. Planta semillas de transformación.
-            </p>
-            <div class="text-center space-y-2">
-              <p class="text-golden font-semibold">€35/sesión</p>
-              <p class="text-xs text-gray-600">Según calendario lunar</p>
-              <button
-                class="w-full bg-lavanda text-dark-bg py-2 rounded-full text-sm font-semibold hover:bg-lavanda/90 transition-colors duration-200"
-              >
-                Reservar Ceremonia
-              </button>
-            </div>
-          </div>
+                <svg
+                  class="w-8 h-8 md:w-10 md:h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={workshop.iconPath}
+                  ></path>
+                </svg>
+              </div>
 
-          <!-- Workshop 3: Sanación Grupal -->
-          <div
-            class="bg-white rounded-2xl p-6 shadow-lg min-w-[300px] max-w-[300px] hover:shadow-xl transition-shadow duration-300 workshop-card"
-          >
-            <div
-              class="w-16 h-16 bg-menta-ligera rounded-full flex items-center justify-center mb-4 mx-auto"
-            >
-              <svg
-                class="w-8 h-8 text-dark-bg"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-display font-semibold text-center mb-3">
-              Sanación Grupal
-            </h3>
-            <p class="text-gray-700 text-sm text-center mb-4 leading-relaxed">
-              Círculo de sanación energética colectiva. La fuerza del grupo
-              amplifica la transformación individual.
-            </p>
-            <div class="text-center space-y-2">
-              <p class="text-golden font-semibold">€40/sesión</p>
-              <p class="text-xs text-gray-600">Domingos 18:00h</p>
-              <button
-                class="w-full bg-menta-ligera text-dark-bg py-2 rounded-full text-sm font-semibold hover:bg-menta-ligera/90 transition-colors duration-200"
-              >
-                Participar
-              </button>
-            </div>
-          </div>
+              <h3 class="text-xl md:text-2xl font-display font-semibold text-center mb-3 md:mb-4 text-gray-900 leading-tight">
+                {workshop.title}
+              </h3>
+              <p class="text-sm md:text-base text-gray-700 text-center mb-5 md:mb-6 leading-relaxed flex-grow">
+                {workshop.description}
+              </p>
 
-          <!-- Workshop 4: Tarot Colectivo -->
-          <div
-            class="bg-white rounded-2xl p-6 shadow-lg min-w-[300px] max-w-[300px] hover:shadow-xl transition-shadow duration-300 workshop-card"
-          >
-            <div
-              class="w-16 h-16 bg-amarillo-crema rounded-full flex items-center justify-center mb-4 mx-auto"
-            >
-              <svg
-                class="w-8 h-8 text-dark-bg"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                ></path>
-              </svg>
+              <div class="space-y-3 md:space-y-4 mt-auto">
+                <div class="text-center space-y-1 md:space-y-2">
+                  <p class="text-golden font-bold text-xl md:text-2xl">
+                    {workshop.price}
+                    <span class="text-sm md:text-base font-normal text-gray-600">/sesión</span>
+                  </p>
+                  <p class="text-xs md:text-sm text-gray-600 font-medium">{workshop.schedule}</p>
+                </div>
+                <button
+                  class={`w-full ${workshop.color} text-gray-900 py-3 md:py-4 rounded-full text-sm md:text-base font-semibold transition-all duration-200 hover:opacity-90 shadow-sm`}
+                >
+                  {workshop.buttonText}
+                </button>
+              </div>
             </div>
-            <h3 class="text-lg font-display font-semibold text-center mb-3">
-              Tarot Colectivo
-            </h3>
-            <p class="text-gray-700 text-sm text-center mb-4 leading-relaxed">
-              Exploración grupal de arquetipos y mensajes. Aprende tarot
-              mientras recibes guidance colectiva.
-            </p>
-            <div class="text-center space-y-2">
-              <p class="text-golden font-semibold">€50/sesión</p>
-              <p class="text-xs text-gray-600">Viernes 19:00h</p>
-              <button
-                class="w-full bg-amarillo-crema text-dark-bg py-2 rounded-full text-sm font-semibold hover:bg-amarillo-crema/90 transition-colors duration-200"
-              >
-                Explorar Tarot
-              </button>
-            </div>
-          </div>
-
-          <!-- Workshop 5: Retiro de Fin de Semana -->
-          <div
-            class="bg-white rounded-2xl p-6 shadow-lg min-w-[300px] max-w-[300px] hover:shadow-xl transition-shadow duration-300 workshop-card"
-          >
-            <div
-              class="w-16 h-16 bg-golden/30 rounded-full flex items-center justify-center mb-4 mx-auto"
-            >
-              <svg
-                class="w-8 h-8 text-golden"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-display font-semibold text-center mb-3">
-              Retiro de Fin de Semana
-            </h3>
-            <p class="text-gray-700 text-sm text-center mb-4 leading-relaxed">
-              Inmersión completa de transformación. Combina todas las
-              modalidades en una experiencia intensiva.
-            </p>
-            <div class="text-center space-y-2">
-              <p class="text-golden font-semibold">€280/retiro</p>
-              <p class="text-xs text-gray-600">Mensual - fin de semana</p>
-              <button
-                class="w-full bg-golden text-white py-2 rounded-full text-sm font-semibold hover:bg-golden/90 transition-colors duration-200"
-              >
-                Reservar Retiro
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
 
-    <!-- Group Benefits Section -->
-    <div class="mt-16 bg-white/50 backdrop-blur-sm rounded-3xl p-8 md:p-12">
-      <h3 class="text-subsection font-display font-semibold text-center mb-8">
+    <!-- Benefits Section -->
+    <div class="bg-white/50 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 border border-gray-200 shadow-lg">
+      <h3 class="text-2xl md:text-3xl lg:text-4xl font-display font-semibold text-center mb-8 md:mb-12 text-gray-900 px-2">
         Beneficios de la Experiencia Grupal
       </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-lavanda rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-6 h-6 text-dark-bg"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+      <div id="benefits-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        {benefits.map((benefit) => (
+          <div class="benefit-item text-center">
+            <div
+              class={`w-14 h-14 md:w-16 md:h-16 ${benefit.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 text-gray-900 transition-transform duration-300 hover:scale-105 shadow-sm`}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              ></path>
-            </svg>
+              <svg
+                class="w-6 h-6 md:w-7 md:h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d={benefit.iconPath}
+                ></path>
+              </svg>
+            </div>
+            <h4 class="font-display text-lg md:text-xl font-semibold mb-2 md:mb-3 text-gray-900">
+              {benefit.title}
+            </h4>
+            <p class="text-sm md:text-base text-gray-700 leading-relaxed px-2">
+              {benefit.description}
+            </p>
           </div>
-          <h4 class="font-semibold mb-2">Comunidad</h4>
-          <p class="text-gray-700 text-sm">
-            Conecta con personas afines en tu camino
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-menta-ligera rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-6 h-6 text-dark-bg"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h4 class="font-semibold mb-2">Energía Amplificada</h4>
-          <p class="text-gray-700 text-sm">
-            La fuerza grupal potencia la transformación
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-rosa-empolvado rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-6 h-6 text-dark-bg"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              ></path>
-            </svg>
-          </div>
-          <h4 class="font-semibold mb-2">Apoyo Mutuo</h4>
-          <p class="text-gray-700 text-sm">
-            Comparte y recibe en un espacio seguro
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-amarillo-crema rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-6 h-6 text-dark-bg"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-              ></path>
-            </svg>
-          </div>
-          <h4 class="font-semibold mb-2">Aprendizaje</h4>
-          <p class="text-gray-700 text-sm">
-            Aprende de las experiencias de otros
-          </p>
-        </div>
+        ))}
       </div>
     </div>
+
+    <!-- Decorative element -->
+ 
   </Container>
 </section>
+
+<style>
+  #workshops-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // Animación del título con SplitText (similar al Hero)
+  const titleHeading = document.querySelector(".workshop-heading");
+  const titleSubtitle = document.querySelector(".workshop-subtitle");
+
+  if (titleHeading && titleSubtitle) {
+    const titleSplit = new SplitText(titleHeading, { type: "words" });
+    const subtitleSplit = new SplitText(titleSubtitle, { type: "words" });
+
+    const titleTimeline = gsap.timeline({
+      defaults: {
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      scrollTrigger: {
+        trigger: "#workshops-title",
+        start: "top 85%",
+      },
+    });
+
+    titleTimeline
+      .from(titleSplit.words, {
+        y: 30,
+        opacity: 0,
+        
+        stagger: 0.05,
+      })
+      .from(
+        subtitleSplit.words,
+        {
+          y: 20,
+          opacity: 0,
+          
+          stagger: 0.03,
+        },
+        "-=0.4"
+      );
+  }
+
+  // Animación de las cards al hacer scroll
+  const cards = document.querySelectorAll(".workshop-card");
+  if (cards.length > 0) {
+    gsap.from(cards, {
+      scrollTrigger: {
+        trigger: "#workshops-cards",
+        start: "top 80%",
+      },
+      y: 50,
+      opacity: 0,
+      
+      stagger: 0.1,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+  }
+
+  // Animación de los beneficios
+  const benefitItems = document.querySelectorAll(".benefit-item");
+  if (benefitItems.length > 0) {
+    gsap.from(benefitItems, {
+      scrollTrigger: {
+        trigger: "#benefits-grid",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      
+      stagger: 0.15,
+      duration: 0.7,
+      ease: "power2.out",
+    });
+  }
+
+  // Progress bar para el scroll horizontal
+  const scrollContainer = document.getElementById("workshops-scroll-container");
+  const progressBar = document.getElementById("scroll-progress-bar");
+
+  if (scrollContainer && progressBar) {
+    const updateProgress = () => {
+      const scrollWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const scrolled = scrollContainer.scrollLeft;
+      const progress = scrollWidth > 0 ? (scrolled / scrollWidth) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    };
+
+    scrollContainer.addEventListener("scroll", updateProgress);
+    updateProgress();
+  }
+
+  // Handle window resize
+  let resizeTimeout: number;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = window.setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 250);
+  });
+</script>

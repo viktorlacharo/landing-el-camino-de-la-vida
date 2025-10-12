@@ -5,7 +5,7 @@ import Container from "../layout/Container.astro";
 const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
 ---
 
-<section id="packs" class="py-section">
+<section id="packs" class="py-section  bg-gradient-to-b  from-background to-amarillo-crema">
   <Container>
     <!-- Section Header -->
     <div
@@ -34,14 +34,14 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
           </defs>
         </svg>
       </p>
-      <h2 class="border-b-golden">Crea tu pack</h2>
+      <h2 class="italic  text-golden">Crea <span class="font-light not-italic text-gray-900 "> tu pack</span></h2>
     </div>
 
     <!-- Packs Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
       <!-- Pack 2 Terapias -->
       <div
-        class="bg-gradient-to-br pack relative from-menta-ligera/40 to-menta-ligera/10 rounded-3xl p-8"
+        class="bg-gradient-to-br shadow-sm pack relative from-menta-ligera/40 to-menta-ligera/10 rounded-3xl p-8"
       >
         <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
           <span
@@ -109,13 +109,13 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
 
         <div class="">
           <span class="text-3xl text-center font-bold text-golden block mb-4"
-            >€140</span
+            >€150 <small class="text-xs">/persona</small></span
           >
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20el%20Pack%20Bienestar%20(€140)%20que%20incluye%202%20terapias%20a%20elegir%20y%201%20noche%20en%20caseta%20Aura%20o%20Gaia.%20¿Podrían%20darme%20más%20información?`}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full justify-center border bg-menta-ligera text-dark-bg py-3 rounded-full font-semibold flex text-center items-center hover:bg-menta-ligera/90 transition-colors duration-200"
+            class="w-full justify-center border   bg-menta-ligera text-dark-bg py-3 rounded-full font-semibold flex text-center items-center hover:bg-menta-ligera/90 transition-colors duration-200"
           >
             Reservar Pack
           </a>
@@ -124,7 +124,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
 
       <!-- Pack Parejas -->
       <div
-        class="bg-gradient-to-br from-rosa-empolvado/50 to-rosa-empolvado/10 rounded-3xl p-8"
+        class="bg-gradient-to-br shadow-sm from-rosa-empolvado/50 to-rosa-empolvado/10 rounded-3xl p-8"
       >
         <div class="text-center mb-6">
           <h3 class=" font-display font-bold mb-2 text-dark-bg">
@@ -185,7 +185,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
         </div>
 
         <div class="text-center">
-          <span class="text-3xl font-bold text-golden block mb-4">€290 <small class="text-xs">para dos</small></span>
+          <span class="text-3xl font-bold text-golden block mb-4">€290<small class="text-xs"> /para dos</small></span>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20el%20Pack%20Parejas%20(€290%20para%20dos)%20que%20incluye%20terapia%20a%20elegir%20y%202%20noches%20de%20fin%20de%20semana.%20¿Podrían%20darme%20más%20información%20sobre%20disponibilidad?`}
             target="_blank"
@@ -198,18 +198,17 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
       </div>
 
       <!-- Pack Transformación -->
-      <div
+      <!-- <div
         class="bg-gradient-to-br from-lavanda/30 to-amarillo-crema/30 rounded-3xl p-8 relative"
       >
-        <!-- Popular Badge -->
+      
 
         <div class="text-center mb-6 mt-4">
           <h3 class="font-display font-bold mb-2 text-dark-bg">
             Pack Transformación
           </h3>
           <p class="text-gray-700 leading-relaxed">
-            Experiencia profunda de sanación: Sanación del Niño Interior + 
-            Mediumnidad + 2 noches de integración.
+            Un fin de semana 
           </p>
         </div>
 
@@ -272,17 +271,17 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
             Reservar Pack
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Custom Package CTA -->
     <div
-      class="bg-gradient-to-r from-golden/20 to-lavanda/20 rounded-3xl p-8 md:p-12 text-center"
+      class="bg-gradient-to-r shadow-sm from-golden/20 flex flex-col to-lavanda/50 rounded-3xl p-8 md:p-12 text-center"
     >
       <h3 class="text-subsection font-display font-semibold mb-4">
         ¿Necesitas algo más personalizado?
       </h3>
-      <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+      <p class="text-gray-900 mb-6 max-w-2xl mx-auto">
         Creamos experiencias únicas adaptadas a tus necesidades específicas.
         Combina terapias, alojamiento y duración según tu proceso personal.
       </p>
@@ -290,7 +289,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
         href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20solicitar%20un%20Pack%20Personalizado%20adaptado%20a%20mis%20necesidades%20específicas.%20¿Podrían%20ayudarme%20a%20crear%20una%20experiencia%20única%20de%20terapias%20y%20alojamiento?`}
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-golden text-white px-8 py-4 rounded-full font-medium hover:bg-golden/90 transition-colors duration-200 transform hover:scale-105"
+        class="bg-golden text-white  px-8 py-3 rounded-full font-medium hover:bg-golden/90 transition-colors duration-200 transform hover:scale-105"
       >
         Solicitar Pack Personalizado
       </a>
