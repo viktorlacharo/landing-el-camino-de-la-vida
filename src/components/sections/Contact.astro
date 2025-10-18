@@ -1,18 +1,24 @@
 ---
+import { PHONE_NUMBER, EMAIL_ADDRESS, WHATSAPP_URL } from '@/constants';
 import Container from '../layout/Container.astro';
 ---
 
 <section id="contacto" class="py-section bg-gradient-to-br from-lavanda/20 to-golden/10">
   <Container>
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-section md:text-5xl font-display font-bold mb-4 text-dark-bg">
-        Inicia tu Transformación
+    <div class="flex w-full justify-center gap-4 items-center mb-16">
+      <div class="size-2 rotate-45 bg-golden"></div>
+
+      <h2 class="text-3xl md:text-4xl p-2 relative">
+        <span class="text-golden font-indie -z-10 -rotate-3 -top-8 absolute"
+          >Empieza hoy</span
+        >
+        <span class=" text-dark-bg uppercase tracking-wide">Contacto</span>
+
+
       </h2>
-      <p class="text-xl text-gray-900 max-w-3xl mx-auto">
-        ¿Listo para dar el primer paso hacia tu sanación? Conecta con nosotros y 
-        descubre cómo podemos acompañarte en tu camino de crecimiento interior.
-      </p>
+
+      <div class="size-2 rotate-45 bg-golden"></div>
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -31,7 +37,7 @@ import Container from '../layout/Container.astro';
               </div>
               <div>
                 <h4 class="font-semibold text-dark-bg mb-1">Teléfono</h4>
-                <p class="text-gray-700">+34 XXX XXX XXX</p>
+                <p class="text-gray-700">{PHONE_NUMBER}</p>
                 <p class="text-sm text-gray-600">Disponible de 9:00 a 19:00h</p>
               </div>
             </div>
@@ -45,7 +51,7 @@ import Container from '../layout/Container.astro';
               </div>
               <div>
                 <h4 class="font-semibold text-dark-bg mb-1">Email</h4>
-                <p class="text-gray-700">info@elcaminodelavida.es</p>
+                <p class="text-gray-700">{EMAIL_ADDRESS}</p>
                 <p class="text-sm text-gray-600">Respuesta en 24h</p>
               </div>
             </div>
@@ -71,21 +77,21 @@ import Container from '../layout/Container.astro';
         <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-6">
           <h4 class="font-display font-semibold mb-4">Acciones Rápidas</h4>
           <div class="space-y-3">
-            <a href="tel:+34XXXXXXXXX" class="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-golden/10 transition-colors duration-200 group">
-              <span class="font-medium">Llamar ahora</span>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class=" flex items-center justify-between p-3 bg-white rounded-lg hover:bg-golden/10 transition-colors duration-200 group">
+              <span class="font-medium">WhatsApp</span>
               <svg class="w-5 h-5 text-golden group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
-            <a href="mailto:info@elcaminodelavida.es" class="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-lavanda/10 transition-colors duration-200 group">
+            <a href={`mailto:${EMAIL_ADDRESS}`} class=" flex items-center justify-between p-3 bg-white rounded-lg hover:bg-lavanda/10 transition-colors duration-200 group">
               <span class="font-medium">Enviar email</span>
-              <svg class="w-5 h-5 text-lavanda group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-golden group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
-            <a href="https://wa.me/34XXXXXXXXX" class="flex items-center justify-between p-3 bg-white rounded-lg hover:bg-menta-ligera/10 transition-colors duration-200 group">
-              <span class="font-medium">WhatsApp</span>
-              <svg class="w-5 h-5 text-menta-ligera group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href={`tel:${PHONE_NUMBER}`} class=" flex items-center justify-between p-3 bg-white rounded-lg hover:bg-menta-ligera/10 transition-colors duration-200 group">
+              <span class="font-medium">Llamar ahora</span>
+              <svg class="w-5 h-5 text-golden group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
@@ -97,3 +103,6 @@ import Container from '../layout/Container.astro';
     </div>
   </Container>
 </section>
+
+
+

@@ -313,7 +313,13 @@ const Therapy: FC<TherapyProps> = ({ name, index, description }) => {
             </h2>
 
             <div>
-              <p className="text-white/90 leading-relaxed tracking-wide text-lg text-left text-pretty">
+              <p
+                className="text-white/90 leading-relaxed tracking-wide text-lg text-left text-pretty max-h-72"
+                style={{
+                  scrollbarGutter: "stable",
+                  scrollbarWidth: "none",
+                }}
+              >
                 {description}
               </p>
             </div>

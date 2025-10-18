@@ -1,12 +1,7 @@
 ---
 import SocialMedia from "../ui/SocialMedia";
 import Container from "./Container.astro";
-import {
-  PHONE_NUMBER,
-  EMAIL_ADDRESS,
- 
-  WHATSAPP_URL,
-} from "@/constants";
+import { PHONE_NUMBER, EMAIL_ADDRESS, WHATSAPP_URL } from "@/constants";
 const year = new Date().getFullYear();
 ---
 
@@ -17,7 +12,7 @@ const year = new Date().getFullYear();
       <div>
         <h3 class="text-xl font-display font-semibold mb-4">Contacto</h3>
         <div class="space-y-2">
-          <a 
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -38,7 +33,7 @@ const year = new Date().getFullYear();
             </svg>
             {PHONE_NUMBER}
           </a>
-          <a 
+          <a
             href={`mailto:${EMAIL_ADDRESS}`}
             class="flex items-center hover:text-golden transition-colors duration-200"
           >
@@ -57,7 +52,7 @@ const year = new Date().getFullYear();
             </svg>
             {EMAIL_ADDRESS}
           </a>
-          <a 
+          <a
             href="https://maps.app.goo.gl/hTbkT5MhF2n2HJsq7"
             target="_blank"
             rel="noopener noreferrer"
@@ -134,11 +129,15 @@ const year = new Date().getFullYear();
     <!-- Copyright -->
     <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
       <p>&copy; {year} El Camino de la Vida. Todos los derechos reservados.</p>
-      <p class="mt-4 text-sm">
+      <a
+        href="https://github.com/viktorlacharo"
+        target="_blank"
+        class="mt-4 text-sm"
+      >
         Desarrollado por <span class="font-medium text-golden"
           >@viktorlacharo</span
         >
-      </p>
+      </a>
     </div>
   </Container>
 </footer>

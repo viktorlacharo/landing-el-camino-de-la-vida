@@ -120,14 +120,19 @@ const benefits: Benefit[] = [
 
   <Container>
     <!-- Section Header -->
-    <div id="workshops-title" class="text-center mb-10 md:mb-16">
-      <h2 class="workshop-heading text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6 text-gray-900 leading-tight px-2">
-        Talleres de Crecimiento Grupal
+    <div id="workshops-title" class="flex w-full justify-between items-center mb-10 md:mb-16">
+      <div class="size-2 rotate-45 bg-golden"></div>
+
+      <h2 class="text-3xl md:text-4xl p-2 relative">
+        <span class="text-golden font-indie -z-10 -rotate-3 left-12 -top-8  absolute"
+          >Juntos crecemos</span
+        >
+        <span class=" text-dark-bg uppercase tracking-wide">Talleres Grupales</span>
+
+        ></span>
       </h2>
-      <p class="workshop-subtitle text-base md:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed px-4">
-        Experiencias grupales que potencian la transformación compartida. Conecta con otros buscadores y amplifica
-        tu proceso de sanación.
-      </p>
+
+      <div class="size-2 rotate-45 bg-golden"></div>
     </div>
 
     <!-- Progress Bar -->
@@ -248,6 +253,10 @@ const benefits: Benefit[] = [
 <style>
   #workshops-scroll-container::-webkit-scrollbar {
     display: none;
+  }
+
+  .shape {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
   }
 </style>
 

@@ -50,6 +50,13 @@ import Contact from "../components/sections/Contact.astro";
     -webkit-text-fill-color: transparent;
     transition: background-position 0.3s ease;
   }
+
+  @media (max-height: 762px) {
+    .social-media:not(header .social-media) {
+      top: 40px;
+      left: 20px;
+    }
+  }
 </style>
 
 <script>
