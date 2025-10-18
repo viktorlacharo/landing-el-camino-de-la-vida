@@ -8,7 +8,7 @@
   --breakpoint-xs: 390px;
   /* Brand Colors */
   --color-lavanda: #e8d7ff;
-  --color-golden: #be772c;
+  --color-golden: oklch(0.6322 0.1245 62.99);
   --color-background: #fcf6ed;
 
   /* Secondary Colors */
@@ -291,6 +291,7 @@ button,
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    /* @apply border border-red-500; */
   }
   body {
     @apply bg-background text-foreground;

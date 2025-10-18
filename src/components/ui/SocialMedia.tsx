@@ -1,11 +1,21 @@
-import React from "react";
+import { cn } from "@/lib/utils";
+import { INSTAGRAM_URL, FACEBOOK_URL, WHATSAPP_URL } from "@/constants";
+import React, { type FC } from "react";
 
-const SocialMedia = () => {
+interface SocialMediaProps {
+  isStatic?: boolean;
+}
+
+const SocialMedia: FC<SocialMediaProps> = ({ isStatic }) => {
   return (
-    <div className="flex space-x-6 absolute right-10 top-24 justify-end w-fit social-media">
+    <div
+      className={cn("flex space-x-6", {
+        "absolute right-10 top-24 justify-end w-fit social-media": !isStatic,
+      })}
+    >
       {/* Instagram */}
       <a
-        href="https://instagram.com/elcaminodelavida"
+        href={INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="text-white/60 hover:text-golden transition-all duration-300 transform hover:scale-110"
@@ -18,7 +28,7 @@ const SocialMedia = () => {
 
       {/* Facebook */}
       <a
-        href="https://facebook.com/elcaminodelavida"
+        href={FACEBOOK_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="text-white/60 hover:text-golden transition-all duration-300 transform hover:scale-110"
@@ -31,7 +41,7 @@ const SocialMedia = () => {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/34123456789"
+        href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="text-white/60 hover:text-golden transition-all duration-300 transform hover:scale-110"

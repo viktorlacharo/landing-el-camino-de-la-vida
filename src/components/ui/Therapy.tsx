@@ -2,6 +2,7 @@ import React, { type FC, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import SocialMedia from "./SocialMedia";
 import { ArrowUpRight } from "lucide-react";
+import { WHATSAPP_URL } from "@/constants";
 
 interface TherapyProps {
   name: string;
@@ -253,7 +254,7 @@ const Therapy: FC<TherapyProps> = ({ name, index, description }) => {
         <button
           ref={refButton}
           onClick={toggleMenu}
-          className="w-full flex items-center justify-between text-left hover:text-golden transition-colors duration-300 group"
+          className="w-full flex items-start justify-between text-left hover:text-golden transition-colors duration-300 group"
           aria-expanded={isOpen}
           aria-label={`Ver descripción de ${name}`}
         >
@@ -264,7 +265,7 @@ const Therapy: FC<TherapyProps> = ({ name, index, description }) => {
             </span>
           </p>
 
-          <PlusIcon className="w-6 h-6 text-golden transition-transform duration-300" />
+          <PlusIcon className="w-6 h-6 shrink-0 text-golden transition-transform duration-300" />
         </button>
       </div>
 
@@ -321,7 +322,7 @@ const Therapy: FC<TherapyProps> = ({ name, index, description }) => {
         {/* CTA */}
         <div className="mt-8 cta">
           <a
-            href="/todo"
+            href={`${WHATSAPP_URL}?text=¡Hola!%20Me%20interesa%20la%20terapia%20de%20${encodeURIComponent(name)}.%20¿Podrían%20darme%20más%20información%20sobre%20disponibilidad%20y%20precios?`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border-golden border text-golden mt-8   px-6 py-3  g hover:bg-golden/10 transition-colors duration-300"

@@ -1,8 +1,6 @@
 ---
 import Container from "../layout/Container.astro";
-
-// Número de WhatsApp (formato internacional sin +)
-const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
+import { WHATSAPP_URL } from "@/constants";
 ---
 
 <section id="packs" class="py-section  bg-gradient-to-b  from-background to-amarillo-crema">
@@ -11,7 +9,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
     <div
       class="text-left mb-16 relative text-4xl items-start flex flex-col gap-2 uppercase font-display font-semibold text-dark-b"
     >
-      <p class="relative opacity-50">
+      <p class="relative ">
         Elige
 
         <svg
@@ -112,7 +110,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
             >€150 <small class="text-xs">/persona</small></span
           >
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20el%20Pack%20Bienestar%20(€140)%20que%20incluye%202%20terapias%20a%20elegir%20y%201%20noche%20en%20caseta%20Aura%20o%20Gaia.%20¿Podrían%20darme%20más%20información?`}
+            href={`${WHATSAPP_URL}?text=¡Hola!%20Me%20interesa%20el%20Pack%20Bienestar%20(€150)%20que%20incluye%202%20terapias%20a%20elegir%20y%201%20noche%20en%20caseta%20Aura%20o%20Gaia.%20¿Podrían%20darme%20más%20información?`}
             target="_blank"
             rel="noopener noreferrer"
             class="w-full justify-center border   bg-menta-ligera text-dark-bg py-3 rounded-full font-semibold flex text-center items-center hover:bg-menta-ligera/90 transition-colors duration-200"
@@ -187,7 +185,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
         <div class="text-center">
           <span class="text-3xl font-bold text-golden block mb-4">€290<small class="text-xs"> /para dos</small></span>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20el%20Pack%20Parejas%20(€290%20para%20dos)%20que%20incluye%20terapia%20a%20elegir%20y%202%20noches%20de%20fin%20de%20semana.%20¿Podrían%20darme%20más%20información%20sobre%20disponibilidad?`}
+            href={`${WHATSAPP_URL}?text=¡Hola!%20Me%20interesa%20el%20Pack%20Parejas%20(€290%20para%20dos)%20que%20incluye%20terapia%20a%20elegir%20y%202%20noches%20de%20fin%20de%20semana.%20¿Podrían%20darme%20más%20información%20sobre%20disponibilidad?`}
             target="_blank"
             rel="noopener noreferrer"
             class="w-full flex justify-center bg-rosa-empolvado border  text-dark-bg py-3 rounded-full font-semibold hover:bg-rosa-empolvado/90 transition-colors duration-200"
@@ -263,7 +261,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
         <div class="text-center">
           <span class="text-3xl font-bold text-golden block mb-4">€320</span>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20el%20Pack%20Transformación%20(€320)%20que%20incluye%20Sanación%20del%20Niño%20Interior,%20Mediumnidad%20y%202%20noches%20de%20integración.%20¿Podrían%20darme%20más%20información?`}
+            href={`${WHATSAPP_URL}?text=¡Hola!%20Me%20interesa%20el%20Pack%20Transformación%20(€320)%20que%20incluye%20Sanación%20del%20Niño%20Interior,%20Mediumnidad%20y%202%20noches%20de%20integración.%20¿Podrían%20darme%20más%20información?`}
             target="_blank"
             rel="noopener noreferrer"
             class="w-full flex justify-center bg-lavanda text-dark-bg py-3 rounded-full font-semibold hover:bg-lavanda/90 transition-colors duration-200"
@@ -286,7 +284,7 @@ const WHATSAPP_NUMBER = "34600000000"; // Reemplazar con el número real
         Combina terapias, alojamiento y duración según tu proceso personal.
       </p>
       <a
-        href={`https://wa.me/${WHATSAPP_NUMBER}/?text=¡Hola!%20Me%20interesa%20solicitar%20un%20Pack%20Personalizado%20adaptado%20a%20mis%20necesidades%20específicas.%20¿Podrían%20ayudarme%20a%20crear%20una%20experiencia%20única%20de%20terapias%20y%20alojamiento?`}
+        href={`${WHATSAPP_URL}?text=¡Hola!%20Me%20interesa%20solicitar%20un%20Pack%20Personalizado%20adaptado%20a%20mis%20necesidades%20específicas.%20¿Podrían%20ayudarme%20a%20crear%20una%20experiencia%20única%20de%20terapias%20y%20alojamiento?`}
         target="_blank"
         rel="noopener noreferrer"
         class="bg-golden text-white  px-8 py-3 rounded-full font-medium hover:bg-golden/90 transition-colors duration-200 transform hover:scale-105"

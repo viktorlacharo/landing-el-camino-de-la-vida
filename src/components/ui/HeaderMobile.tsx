@@ -38,7 +38,7 @@ const NAV_ITEMS: NavItem[] = [
 function BurgerIcon({ className }: { className?: string }) {
   return (
     <svg
-      className={className}
+      className={`${className} burger-icon `}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -277,10 +277,10 @@ export function HeaderMobile() {
       <button
         ref={refButton}
         onClick={toggleMenu}
-        className="burger px-3 py-2  rounded-lg flex justify-center items-center cursor-pointer transition-colors duration-200 relative "
+        className="burger p-2 rounded-full flex justify-center items-center cursor-pointer transition-colors duration-200 relative text-[inherit]"
         aria-label="Toggle mobile menu"
       >
-        <BurgerIcon className="w-5 h-5" />
+        <BurgerIcon className="size-5" />
       </button>
 
       {/* Mobile Navigation Overlay */}
